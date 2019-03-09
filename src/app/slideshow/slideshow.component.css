@@ -1,0 +1,42 @@
+img {
+  width: auto;
+  height: 580px;
+  max-height: 580px;
+}
+
+.a0{
+    background-image: url(../../assets/img/5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.a1{
+    background-image: url(../../assets/img/4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.a2{
+    background-image: url(../../assets/img/6.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+:hover,
+:focus {
+outline: transparent;
+}
+.carousel-caption{
+    bottom:120px;
+}
+h3,p,button{
+    font-family: 'Quicksand', sans-serif;
+}
+p{
+    font-size: 46px;
+    color: #242c42;
+}
+h3{
+    color:#000; 
+}
+button{
+    margin-top:10px;
+    letter-spacing: 0.5ch;
+}

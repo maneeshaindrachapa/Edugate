@@ -1,0 +1,39 @@
+<!-- <slideshow [height]="'540px'"
+           [minHeight]="'540px'"
+           [autoPlay]="true"
+           [showArrows]="true"
+           [imageUrls]="imageSources"
+           [lazyLoad]="imageSources?.length > 1"
+           [autoPlayWaitForLazyLoad]="true"
+           [showDots]="true" >
+</slideshow> -->
+
+<ngb-carousel *ngIf="images">
+    <ng-template ngbSlide>
+      <img [src]="images[0]" class='a0'>
+      <div class="carousel-caption">
+        <h3>You have to Know One Thing</h3>
+        <p>You Can Learn Anything</p>
+        <h3>For Free,For Everyone</h3>
+        <button class="btn btn-outline-success btn-lg" type="button">Start Learning Now</button>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img [src]="images[1]" class='a1'>
+      <div class="carousel-caption">
+        <h3>You have to Know One Thing</h3>
+        <p>You Can Learn Anything</p>
+        <h3>For Free,For Everyone</h3>
+        <button class="btn btn-outline-success btn-lg" type="button">Start Learning Now</button>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <img [src]="images[2]" class='a2'>
+      <div class="carousel-caption">
+        <h3>You have to Know One Thing</h3>
+        <p>You Can Learn Anything</p>
+        <h3>For Free,For Everyone</h3>
+        <button class="btn btn-outline-success btn-lg" type="button">Start Learning Now</button>
+      </div>
+    </ng-template>
+  </ngb-carousel>
