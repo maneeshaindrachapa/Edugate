@@ -1,0 +1,22 @@
+.whatwegive {
+  background-image: url("../../assets/img/4.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 60px;
+  padding-bottom: 10px;
+  /* -webkit-filter: grayscale(100%); 
+  filter: grayscale(100%); */
+}
+i{
+    color:#86bc42;
+    font-size:36px;
+    margin-right:5%;
+}
+p{
+    color: #FFF;
+    font-family: 'Quicksand', sans-serif;
+    font-size:16px;
+}
+.row{
+    margin-bottom: 5%;
+}
