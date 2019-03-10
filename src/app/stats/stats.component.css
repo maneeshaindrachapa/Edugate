@@ -1,0 +1,28 @@
+h1,span{
+    color:#FFF;
+    text-align: center;
+    font-size: 46px;
+    font-family: 'kiona';
+}
+.stats{
+    background-image: url("../../assets/img/backstats.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left:0px !important;
+    margin-right: 0px !important;
+    padding-top:20px;
+    padding-bottom: 20px;
+}
+h4{
+    color:#FFF;
+    text-align: center; 
+    font-family: 'kiona';
+    margin-top:5px;
+}
+button{
+    margin:0px auto;
+    display: block;
+    margin-top:20px;
+    letter-spacing: 0.5ch;
+    font-family: 'kiona';
+}

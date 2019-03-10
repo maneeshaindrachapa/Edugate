@@ -1,0 +1,24 @@
+<div class='stats'>
+  <div class="container">
+    <h1 style='font-family:"kiona"'>Some Important Facts About Us</h1>
+    <div class='row' inViewport [inViewportOptions]="{ threshold: [0] }" (inViewportAction)="onIntersection()">
+      <div class='col-md-3'>
+        <h1 id='myTargetElement1'>0</h1>
+        <h4>Teachers</h4>
+      </div>
+      <div class='col-md-3'>
+        <h1 id='myTargetElement2'>0</h1>
+        <h4>Courses</h4>
+      </div>
+      <div class='col-md-3'>
+        <h1 id='myTargetElement3'>0</h1>
+        <h4>students</h4>
+      </div>
+      <div class='col-md-3'>
+        <h1 id='myTargetElement4'>0</h1>
+        <h4>Countries</h4>
+      </div>
+    </div>
+    <button class="btn btn-outline-success btn-lg" type="button">Start Learning Now</button>
+  </div>
+</div>
