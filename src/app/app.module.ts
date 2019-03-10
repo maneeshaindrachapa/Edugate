@@ -15,6 +15,7 @@ import { StatsComponent } from './stats/stats.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { CoursesComponent } from './courses/courses.component';
 import { WhatwegiveComponent } from './whatwegive/whatwegive.component';
+import { PricingComponent } from './pricing/pricing.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { WhatwegiveComponent } from './whatwegive/whatwegive.component';
     StatsComponent,
     TestimonialsComponent,
     CoursesComponent,
-    WhatwegiveComponent
+    WhatwegiveComponent,
+    PricingComponent
   ],
   imports: [
     NgbModule,
