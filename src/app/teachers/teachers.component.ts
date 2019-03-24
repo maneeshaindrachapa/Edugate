@@ -17,7 +17,22 @@ export class TeachersComponent implements OnInit {
     {image: '../../assets/img/avatar/people-avatar-5.jpg'}
   ];
   slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4, 'arrows': true};
-  myCarouselOptions = {items: 4, dots: false, nav: true};
+  myCarouselOptions = {items: 4, dots: false, nav: true,responsiveClass:true,
+    responsive: {
+        0: {
+            items: 1,
+            nav: false,
+            dots:true
+        },
+        600: {
+            items: 3,
+            nav: true
+        },
+        1000: {
+            items: 4,
+            nav: true
+        }
+    }};
   constructor() { }
 
   ngOnInit() {

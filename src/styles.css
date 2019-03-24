@@ -19,7 +19,7 @@ body {
 .owl-next:hover{
     background-color: transparent !important;
 }
-.owl-next:active,.owl-next:focus,.owl-prev:active,.owl-prev:focus{
+.owl-next:active,.owl-next:focus,.owl-prev:active,.owl-prev:focus,.owl-dot:active,.owl-dot:focus{
     border: none !important;
     outline:none !important;
 }
