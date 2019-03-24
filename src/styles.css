@@ -23,3 +23,17 @@ body {
     border: none !important;
     outline:none !important;
 }
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 122px;
+  transform: translateY(-50%);
+}
+
+.owl-prev {
+  left: -2rem;
+}
+
+.owl-next {
+  right: -2rem;
+}
