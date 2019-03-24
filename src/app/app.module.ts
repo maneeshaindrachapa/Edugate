@@ -4,6 +4,9 @@ import { SlideshowModule } from 'ng-simple-slideshow';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CountUpModule } from 'countup.js-angular2';
 import { InViewportModule } from 'ng-in-viewport';
+import { BarRatingModule } from 'ngx-bar-rating';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { OwlModule } from 'ngx-owl-carousel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +19,7 @@ import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { CoursesComponent } from './courses/courses.component';
 import { WhatwegiveComponent } from './whatwegive/whatwegive.component';
 import { PricingComponent } from './pricing/pricing.component';
+import { TeachersComponent } from './teachers/teachers.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { PricingComponent } from './pricing/pricing.component';
     TestimonialsComponent,
     CoursesComponent,
     WhatwegiveComponent,
-    PricingComponent
+    PricingComponent,
+    TeachersComponent
   ],
   imports: [
     NgbModule,
@@ -36,7 +41,10 @@ import { PricingComponent } from './pricing/pricing.component';
     CountUpModule,
     SlideshowModule,
     BrowserModule,
-    AppRoutingModule
+    BarRatingModule,
+    AppRoutingModule,
+    SlickCarouselModule,
+    OwlModule
   ],
   providers: [],
   bootstrap: [AppComponent]
