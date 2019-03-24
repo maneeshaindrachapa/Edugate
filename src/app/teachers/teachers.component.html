@@ -1,0 +1,37 @@
+<div class="teachers">
+  <div class="container">
+    <h4>Touch Them if You Want</h4>
+    <h2 style="font-weight: 800">Learn From the Best</h2>
+    <h2 style='color: #86bc42;font-size:24px;'>-&nbsp;<i class="fas fa-school"></i>&nbsp;-</h2>
+    <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig" (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)" (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+        <img src="{{ slide.img }}" alt="" width="50%" height="50%">
+        <div class='details'>
+          <h4 class='teacher-name'>John Doe</h4>
+          <h4 class='hidden-description'>Nam libelo tempore, cum soluta nobis est eligendi optio cumque nilhi impedil
+            quo
+            minus end maximie fade posimus the end.</h4>
+        </div>
+        <h4 class='icons'><i class="fab fa-facebook"></i>&nbsp;<i class="fab fa-google-plus"></i>&nbsp;<i
+            class="fab fa-twitter"></i></h4>
+      </div>
+    </ngx-slick-carousel> -->
+
+    <owl-carousel [options]="myCarouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'sliding']">
+      <div class="item" *ngFor="let image of images;let i = index">
+        <div class="slide">
+          <img src={{image.image}} width="50%" height="50%"/>
+          <div class='details'>
+            <h4 class='teacher-name'>John Doe</h4>
+            <h4 class='hidden-description'>Nam libelo tempore, cum soluta nobis est eligendi optio cumque nilhi impedil
+              quo
+              minus end maximie fade posimus the end.</h4>
+          </div>
+          <h4 class='icons'><i class="fab fa-facebook"></i>&nbsp;<i class="fab fa-google-plus"></i>&nbsp;<i
+              class="fab fa-twitter"></i></h4>
+        </div>
+      </div>
+    </owl-carousel>
+  </div>
+</div>
