@@ -112,4 +112,7 @@ h1 a {
 }
 .pricing{
     padding-bottom:10px;
+    background-image: url(../../assets/img/back_pricing.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
