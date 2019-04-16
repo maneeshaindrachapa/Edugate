@@ -1,0 +1,32 @@
+h3,h4,button{
+    font-family: 'kiona', sans-serif;
+    color: #FFF;
+}
+h3{
+    font-weight: 800;
+}
+h4{
+    margin-top: 0px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+.btn{
+    margin-top:20px;
+    float: right;
+    background-color: #242c42;
+    border-color:transparent;
+    transition:all 0.8s ease;
+}
+.btn:hover {
+    color:#000;
+    border-color:transparent;
+    box-shadow: inset 200px 0 0 0 #e0e0e0;
+}
+.btn::after {
+    background-color: white;
+    transform-origin:left;
+    transition:width 0.25s ease;
+}
+.instructor{
+    background-color:#86bc42;
+}
