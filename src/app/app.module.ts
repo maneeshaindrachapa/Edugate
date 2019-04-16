@@ -20,7 +20,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { WhatwegiveComponent } from './whatwegive/whatwegive.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { TeachersComponent } from './teachers/teachers.component';
-
+import { LoginComponent } from './login/login.component';
+import { InstructorComponent } from './instructor/instructor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,9 @@ import { TeachersComponent } from './teachers/teachers.component';
     CoursesComponent,
     WhatwegiveComponent,
     PricingComponent,
-    TeachersComponent
+    TeachersComponent,
+    LoginComponent,
+    InstructorComponent
   ],
   imports: [
     NgbModule,
