@@ -1,0 +1,89 @@
+a {
+  font-family: "kiona" !important;
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.99) !important;
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+}
+
+.container {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+#login-text {
+  color: white;
+  margin-left: 2%;
+  font-size: 15px;
+  margin-top: 20%;
+}
+
+#login-icon {
+  margin-top: 12%;
+  margin-left: 2%;
+  text-align: left;
+  padding-left: 0px !important;
+}
+.navbar-brand {
+  padding-bottom: 2% !important;
+  padding-top: 2% !important;
+}
+.navbar-collapse {
+  background-color: #fff !important;
+  border-left: none !important;
+}
+.nav-link {
+  color: #242c42 !important;
+  font-size: 14px !important;
+  font-family: "Quicksand", sans-serif;
+}
+.nav-link:hover {
+  color: #6bd098 !important;
+  font-family: "Quicksand", sans-serif;
+}
+.login_ {
+  background-color: #242c42;
+  color: #fff !important;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-left: 15px;
+}
+.nav-item {
+  margin-left: 5px;
+}
+.login_color {
+  color: #fff !important;
+}
+@media screen and (max-width: 991px) {
+  .dropdown .dropdown-menu .dropdown-item:hover {
+    color: #000;
+  }
+  .nav-link:hover {
+    color: #000;
+  }
+  .navbar-collapse ul {
+    height: 70%;
+  }
+  .navbar-collapse {
+    padding-left: 0px !important;
+  }
+  ul {
+    padding-left: 40px;
+  }
+  .login_ {
+    padding-right: 0px;
+    margin-left: 0px;
+    background-color:transparent;
+    background-image: url("../../assets/img/login_menu_back.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .navbar-collapse .navbar-nav > .nav-item > .nav-link {
+    color: #000;
+  }
+}
