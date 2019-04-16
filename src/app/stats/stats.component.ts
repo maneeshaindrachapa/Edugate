@@ -14,6 +14,8 @@ export class StatsComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  
   onIntersection(): void {
     this.triggered += 1;
     const options = {
