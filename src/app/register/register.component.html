@@ -11,14 +11,14 @@
               <img src="../../../../assets/img/logo_login.png" height="30px" width="auto">
             </div> -->
             <form class="register-form">
-              <label>Name</label>
+              <label>Username</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
                     <i class="nc-icon nc-circle-10"></i>
                   </span>
                 </div>
-                <input type="text" class="form-control" placeholder="Name" (focus)="focus=true" (blur)="focus=false">
+                <input type="text" class="form-control" placeholder="Username" (focus)="focus=true" (blur)="focus=false" [(ngModel)]='user.username' name='username'>
               </div>
               <label>Email</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -27,7 +27,7 @@
                     <i class="nc-icon nc-email-85"></i>
                   </span>
                 </div>
-                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false">
+                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" [(ngModel)]='user.email' name='email'>
               </div>
               <label>Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
@@ -36,8 +36,8 @@
                     <i class="nc-icon nc-key-25"></i>
                   </span>
                 </div>
-                <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true"
-                  (blur)="focus1=false">
+                <input type="password" class="form-control" placeholder="Password" (focus)="focus1=true"
+                  (blur)="focus1=false" [(ngModel)]='user.password' name='password'>
               </div>
               <label>Re-type Password</label>
               <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -46,9 +46,9 @@
                     <i class="nc-icon nc-tap-01"></i>
                   </span>
                 </div>
-                <input type="text" class="form-control" placeholder="re-type-password" (focus)="focus=true" (blur)="focus=false">
+                <input type="password" class="form-control" placeholder="re-type-password" (focus)="focus=true" (blur)="focus=false" [(ngModel)]='user.retype' name='retype'>
               </div>
-              <button class="btn btn-login btn-block btn-round">Register</button>
+              <button class="btn btn-login btn-block btn-round" (click)='register()'>Register</button>
             </form>
             <div class="forgot">
               <a class="btn btn-link btn-forgot-password" (click)='login()'>Already have an Account?</a>

@@ -47,3 +47,6 @@
 .card-register{
     max-width: 500px !important;
 }
+input{
+    font-family: 'Quicksand', sans-serif;
+}
