@@ -22,6 +22,8 @@ import { PricingComponent } from './pricing/pricing.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { LoginComponent } from './login/login.component';
 import { InstructorComponent } from './instructor/instructor.component';
+import { FooterComponent } from './footer/footer.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,9 @@ import { InstructorComponent } from './instructor/instructor.component';
     PricingComponent,
     TeachersComponent,
     LoginComponent,
-    InstructorComponent
+    InstructorComponent,
+    FooterComponent,
+    RegisterComponent
   ],
   imports: [
     NgbModule,
