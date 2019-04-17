@@ -1,5 +1,8 @@
-.title, label,input,.btn{
+.title, label,.btn{
     font-family: 'kiona', sans-serif;
+}
+input{
+    font-family: 'Quicksand', sans-serif;
 }
 .title{
     color: #6bd098;
