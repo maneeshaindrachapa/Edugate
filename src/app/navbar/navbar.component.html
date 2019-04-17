@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-danger" color-on-scroll="500">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="#"><img src="../../../../assets/img/logo.png" height="30px" width="auto"></a>
+            <a class="navbar-brand" (click)="home()"><img src="../../../../assets/img/logo.png" height="30px" width="auto"></a>
             <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse"
                 data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                 aria-label="Toggle navigation" (click)="sidebarToggle()">
@@ -14,7 +14,7 @@
         <div class="navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#pk">HOME</a>
+                    <a class="nav-link" (click)="home()">HOME</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#pk">COURSES</a>
