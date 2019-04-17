@@ -7,6 +7,8 @@ import { InViewportModule } from 'ng-in-viewport';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { OwlModule } from 'ngx-owl-carousel';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +26,16 @@ import { LoginComponent } from './login/login.component';
 import { InstructorComponent } from './instructor/instructor.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
+
+import { AuthService } from './services/auth.service';
+import { DashboardAdminComponent } from './dashboard/dashboard-admin/dashboard-admin.component';
+import { DashboardNavbarComponent } from './dashboard/dashboard-navbar/dashboard-navbar.component';
+import { AuthGuardService } from './services/auth-guard.service';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +52,9 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     InstructorComponent,
     FooterComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardAdminComponent,
+    DashboardNavbarComponent
   ],
   imports: [
     NgbModule,
@@ -51,9 +65,17 @@ import { RegisterComponent } from './register/register.component';
     BarRatingModule,
     AppRoutingModule,
     SlickCarouselModule,
-    OwlModule
+    OwlModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter
+      }
+    })
   ],
-  providers: [],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
