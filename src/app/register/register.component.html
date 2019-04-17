@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+  <div class="page-header" style="background-image: url('./assets/img/5.jpg');">
+    <div class="filter"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-8 mr-auto ml-auto">
+          <div class="card card-register">
+            <h3 class="title">Create your Account</h3>
+            <!-- <div class="social-line text-center">
+              <img src="../../../../assets/img/logo_login.png" height="30px" width="auto">
+            </div> -->
+            <form class="register-form">
+              <label>Name</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-circle-10"></i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Name" (focus)="focus=true" (blur)="focus=false">
+              </div>
+              <label>Email</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-email-85"></i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false">
+              </div>
+              <label>Password</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-key-25"></i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true"
+                  (blur)="focus1=false">
+              </div>
+              <label>Re-type Password</label>
+              <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="nc-icon nc-tap-01"></i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="re-type-password" (focus)="focus=true" (blur)="focus=false">
+              </div>
+              <button class="btn btn-login btn-block btn-round">Register</button>
+            </form>
+            <div class="forgot">
+              <a class="btn btn-link btn-forgot-password" (click)='login()'>Already have an Account?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
