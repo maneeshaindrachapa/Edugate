@@ -1,0 +1,87 @@
+.bg-footer {
+    background-color: #242c42;
+    padding: 50px 0 30px;
+}
+
+h6, a, p {
+    font-family: 'kiona', sans-serif;
+}
+
+.footer-heading {
+    letter-spacing: 2px;
+}
+
+.footer-link a {
+    color: #acacac;
+    font-size: 14px;
+    transition: all 0.5s;
+}
+
+.footer-link a:hover {
+    color: #86bc42;
+}
+
+.contact-info {
+    color: #acacac;
+    font-size: 14px;
+}
+
+.footer-social-icon {
+    font-size: 15px;
+    height: 34px;
+    width: 34px;
+    line-height: 34px;
+    border-radius: 3px;
+    text-align: center;
+    display: inline-block;
+}
+
+.facebook {
+    background-color: #424041;
+    color: #ffffff;
+}
+
+.twitter {
+    background-color: #424041;
+    color: #ffffff;
+}
+
+.google {
+    background-color: #424041;
+    color: #ffffff;
+}
+
+.apple {
+    background-color: #424041;
+    color: #ffffff;
+}
+
+.footer-alt {
+    color: #acacac;
+}
+
+.footer-heading {
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-heading:after {
+    content: '';
+    width: 25px;
+    border-bottom: 1px solid #FFF;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    border-bottom: 1px solid #86bc42;
+}
+
+hr {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+.social{
+    transition: all 0.8 ease;
+}
+.social:hover {
+    background-color: #86bc42;
+}
