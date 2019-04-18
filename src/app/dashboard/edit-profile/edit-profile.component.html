@@ -1,0 +1,78 @@
+<app-dashboard-navbar></app-dashboard-navbar>
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/7.jpg');">
+    <div class="filter"></div>
+  </div>
+  <div class="section profile-content">
+    <div class="container">
+      <div class="owner">
+        <div class="avatar">
+          <img src="./assets/img/avatar/{{profile_pic}}" alt="Circle Image"
+            class="img-circle img-no-padding img-responsive">
+        </div>
+        <div class="name">
+          <h4 class="title">{{username}}<br /></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>Username</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-circle-10"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" (focus)="focus=true" (blur)="focus=false"
+              [(ngModel)]="username" name='username'>
+          </div>
+          <label>E-mail</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-email-85"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="email" (focus)="focus=true" (blur)="focus=false">
+          </div>
+        </div>
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>Current Password</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-key-25"></i>
+              </span>
+            </div>
+            <input type="password" class="form-control" placeholder="Current Password" (focus)="focus=true"
+              (blur)="focus=false">
+          </div>
+          <label>New Password</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-key-25"></i>
+              </span>
+            </div>
+            <input type="password" class="form-control" placeholder="New Password" (focus)="focus=true" (blur)="focus=false">
+          </div>
+          <label>Re-Type New Password</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-key-25"></i>
+              </span>
+            </div>
+            <input type="password" class="form-control" placeholder="Re-Type New Password" (focus)="focus=true" (blur)="focus=false">
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-md-6 mr-auto ml-auto">
+          <button class="btn btn-default btn-round">Update Profile</button>
+          <button class="btn btn-default btn-round reset">Reset Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
