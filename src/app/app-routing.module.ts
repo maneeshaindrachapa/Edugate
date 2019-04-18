@@ -7,11 +7,15 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardAdminComponent } from './dashboard/dashboard-admin/dashboard-admin.component';
 
 import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
+import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.component';
+import { AddStudentComponent } from './dashboard/add-student/add-student.component';
 
 const routes: Routes = [{ path: '', component: HomepageComponent },
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent },
-{ path: 'dashboard', component: DashboardAdminComponent, canActivate: [AuthGuard] }
+{ path: 'dashboard', component: DashboardAdminComponent, canActivate: [AuthGuard] },
+{ path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
+{ path: 'addStudent' , component : AddStudentComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

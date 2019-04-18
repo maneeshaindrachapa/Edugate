@@ -32,6 +32,9 @@ import { DashboardAdminComponent } from './dashboard/dashboard-admin/dashboard-a
 import { DashboardNavbarComponent } from './dashboard/dashboard-navbar/dashboard-navbar.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { JwtModule } from '@auth0/angular-jwt';
+import { DashboardCardsComponent } from './dashboard/dashboard-cards/dashboard-cards.component';
+import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.component';
+import { AddStudentComponent } from './dashboard/add-student/add-student.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -54,7 +57,10 @@ export function tokenGetter() {
     FooterComponent,
     RegisterComponent,
     DashboardAdminComponent,
-    DashboardNavbarComponent
+    DashboardNavbarComponent,
+    DashboardCardsComponent,
+    EditProfileComponent,
+    AddStudentComponent
   ],
   imports: [
     NgbModule,
