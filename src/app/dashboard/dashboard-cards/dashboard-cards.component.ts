@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-cards',
@@ -10,7 +11,7 @@ export class DashboardCardsComponent implements OnInit {
   teachers = true;
   assistants = true;
   students = true;
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
@@ -23,5 +24,7 @@ export class DashboardCardsComponent implements OnInit {
       this.students = false;
     }
   }
-
+  addStudent() {
+    this.router.navigate(['addStudent']);
+  }
 }
