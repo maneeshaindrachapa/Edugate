@@ -9,11 +9,12 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthService {
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
+    'Access-Control-Allow-Origin': '*',
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
   });
+
   private jwtHelper = new JwtHelperService();
   constructor(private http: HttpClient) {
-    // this.headers.append('Access-Control-Allow-Origin': '*');
   }
 
   public login(username, password) {
@@ -31,5 +32,19 @@ export class AuthService {
       return false;
     }
 
+  }
+
+  // get profile details
+  public getStudentProfile(id) {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get('http://localhost:8080/students/get/:' + id, { headers: this.headers }).pipe(map(res => res));
+  }
+  public getTeacherProfile(id) {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get('http://localhost:8080/teachers/get/:' + id, { headers: this.headers }).pipe(map(res => res));
+  }
+  public getAssistantProfile(id) {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get('http://localhost:8080/assistants/get/:' + id, { headers: this.headers }).pipe(map(res => res));
   }
 }
