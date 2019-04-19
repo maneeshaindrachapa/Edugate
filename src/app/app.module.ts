@@ -8,7 +8,8 @@ import { BarRatingModule } from 'ngx-bar-rating';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { OwlModule } from 'ngx-owl-carousel';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -76,6 +77,7 @@ export function tokenGetter() {
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxDatatableModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter

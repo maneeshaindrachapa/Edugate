@@ -22,6 +22,7 @@
     "@auth0/angular-jwt": "^2.1.0",
     "@fortawesome/angular-fontawesome": "^0.3.0",
     "@ng-bootstrap/ng-bootstrap": "^3.3.0",
+    "@swimlane/ngx-datatable": "^14.0.0",
     "@types/waypoints": "^4.0.1",
     "angular-font-awesome": "^3.1.2",
     "angular-waypoints": "^2.0.0",
