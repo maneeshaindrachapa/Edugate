@@ -11,8 +11,24 @@ export class AddStudentComponent implements OnInit {
   username = '';
   role = '';
   profile_pic = 'add-student-avatar.jpg'; // default prof pic
-  classes: classesparticipate;
+  classes = [];
   batches = [];
+
+  /* data tabel for classes */
+  rows = [];
+  columns = [
+    { prop: 'subject_id', name: 'Subject' },
+    { prop: 'batch_id', name: 'Batch' },
+    { prop: 'teacher_id', name: 'Teacher' },
+    { prop: 'group_id', name: 'Group' },
+    { prop: 'day_of_week', name: 'Day' },
+    { prop: 'starting_time', name: 'Time' },
+    { prop: 'fees', name: 'Fees' },
+    /*{prop: 'fullPackPrice', name: 'Full Pack Price'},*/
+  ];
+
+  selected = [];
+  /*************/
 
   personalInfo = { firstName: '', lastName: '', address: '', city: '', telephone: '', mobilePhone: '', birthday: '' };
   guardinaInfo = { name: '', address: '', city: '', telephone: '', emergency: '' };
@@ -33,6 +49,13 @@ export class AddStudentComponent implements OnInit {
     console.log(this.personalInfo);
     console.log(this.guardinaInfo);
   }
+  selectClass({ selected }) {
+    console.log('Select Event', selected, this.selected);
+    this.selected.splice(0, this.selected.length);
+    this.selected.push(...selected);
+  }
+
+  /* guardian details select same*/
   sameAddress() {
     if (this.personalInfo.address !== '') {
       this.guardinaInfo.address = this.personalInfo.address;
@@ -61,10 +84,15 @@ export class AddStudentComponent implements OnInit {
       alert('error');
     }
   }
+  /***********************/
 
   getClasses() {
+    this.classes = [];
     this.classSer.getClasses().subscribe(success => {
-      console.log(success);
+      for (let i = 0; i < success['data'].length; i++) {
+        this.classes.push(success['data'][i]);
+      }
+      this.rows = this.classes;
     }, error => {
       console.log(error);
     });
@@ -80,13 +108,4 @@ export class AddStudentComponent implements OnInit {
       console.log(error);
     });
   }
-}
-
-// tslint:disable-next-line:class-name
-interface classesparticipate {
-  // tslint:disable-next-line:semicolon
-  class_id: Number,
-  // tslint:disable-next-line:semicolon
-  fees_rate: Number
-  // tslint:disable-next-line:eofline
 }
