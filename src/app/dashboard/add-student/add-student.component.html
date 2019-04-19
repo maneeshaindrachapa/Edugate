@@ -14,7 +14,9 @@
           <h4 class="title">Add New Student<br /></h4>
         </div>
       </div>
-      <h4>Personal Information</h4>
+      <h4>Personal Information <br><span class="req-f">* Required Fields</span><br><span class="req-f"><i class="fas fa-check-circle"></i>&nbsp;to
+          select the details as the same details filled earlier</span><br><span class="req-f"><i
+            class="fas fa-plus-circle"></i>&nbsp;to select details from a list</span></h4>
       <div class="row">
         <div class="col-md-6 mr-auto ml-auto">
           <label>First Name *</label>
@@ -186,15 +188,57 @@
               </span>
             </div>
             <input input type="text" class="form-control" placeholder="Classes" (focus)="focus=true"
-              (blur)="focus=false">
-            <div class="input-group-append">
+              (blur)="focus=false" disabled>
+            <div class="input-group-append" (click)="open(content)">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-plus-circle"
                   aria-hidden="true"></i></span>
             </div>
           </div>
+          <!--model-->
+          <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h5 class="modal-title text-center">Add Classes</h5>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-footer">
+              <div class="left-side">
+                <button type="button" class="btn btn-default btn-link" (click)="d('Close click')">Add Classes</button>
+              </div>
+              <div class="divider"></div>
+              <div class="right-side">
+                <button type="button" class="btn btn-danger btn-link" (click)="d('Close click')">Never Mind</button>
+              </div>
+            </div>
+          </ng-template>
         </div>
         <div class="col-md-6 mr-auto ml-auto">
           <label>Admission Batch *</label>
+          <ng-template #content1 let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h5 class="modal-title text-center">Add Batch</h5>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="form-check-radio" *ngFor='let batch of batches'>
+              <label class="form-check-label" >
+                <input class="form-check-input" [(ngModel)]="batchDetails" type="radio" name="batchDetails" value="{{batch['year']}}{{batch['category']}}" >
+                {{batch['category']}} &nbsp; {{batch['year']}}
+                <span class="form-check-sign"></span>
+              </label>
+            </div>
+            <div class="modal-footer">
+              <div class="left-side">
+                <button type="button" class="btn btn-default btn-link" (click)="d('Close click')">Add Batch</button>
+              </div>
+              <div class="divider"></div>
+              <div class="right-side">
+                <button type="button" class="btn btn-danger btn-link" (click)="d('Close click')">Never Mind</button>
+              </div>
+            </div>
+          </ng-template>
           <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
             <div class="input-group-prepend">
               <span class="input-group-text">
@@ -202,8 +246,8 @@
               </span>
             </div>
             <input type="text" class="form-control" placeholder="Admission Batch" (focus)="focus=true"
-              (blur)="focus=false">
-            <div class="input-group-append">
+              (blur)="focus=false" disabled [(ngModel)]="batchDetails" name='batchDetails'>
+            <div class="input-group-append" (click)='openBatch(content1)'>
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-plus-circle"
                   aria-hidden="true"></i></span>
             </div>
