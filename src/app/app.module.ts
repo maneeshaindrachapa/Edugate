@@ -35,6 +35,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { DashboardCardsComponent } from './dashboard/dashboard-cards/dashboard-cards.component';
 import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.component';
 import { AddStudentComponent } from './dashboard/add-student/add-student.component';
+import { ClassService } from './services/class.service';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -81,7 +82,7 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, ClassService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
