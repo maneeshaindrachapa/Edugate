@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/ngx-bar-rating/themes/br-fontawesome-o-theme.css';
+@import '../node_modules/ngx-bar-rating/themes/br-fontawesome-theme.css';
+@import '../node_modules//ngx-bar-rating/themes/br-default-theme.css';
+@font-face {
+  font-family: 'kiona';
+  src: url(assets/fonts/Kiona-Regular.ttf) format("truetype");
+}
+
+body {
+  margin: 0 !important;
+}
+
+.owl-prev, .owl-next {
+  font-size: 54px !important;
+}
+
+.owl-prev:hover {
+  background-color: transparent !important;
+}
+
+.owl-next:hover {
+  background-color: transparent !important;
+}
+
+.owl-next:active, .owl-next:focus, .owl-prev:active, .owl-prev:focus, .owl-dot:active, .owl-dot:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+.owl-prev, .owl-next {
+  position: absolute;
+  top: 122px;
+  transform: translateY(-50%);
+}
+
+.owl-prev {
+  left: -2rem;
+}
+
+.owl-next {
+  right: -2rem;
+}
+
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+.ngx-datatable.material.single-selection .datatable-body-row.active,
+.ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.material.multi-selection .datatable-body-row.active,
+.ngx-datatable.material.multi-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.material.multi-click-selection .datatable-body-row.active,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group {
+    background-color: #AAA !important;
+}
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover,
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover .datatable-row-group, .ngx-datatable.material.multi-selection .datatable-body-row.active:hover,
+.ngx-datatable.material.multi-selection .datatable-body-row.active:hover .datatable-row-group, .ngx-datatable.material.multi-click-selection .datatable-body-row.active:hover,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active:hover .datatable-row-group {
+  background-color: #AAA !important;
+}
