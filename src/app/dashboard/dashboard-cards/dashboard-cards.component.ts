@@ -27,4 +27,7 @@ export class DashboardCardsComponent implements OnInit {
   addStudent() {
     this.router.navigate(['addStudent']);
   }
+  searchStudent() {
+    this.router.navigate(['searchStudent']);
+  }
 }
