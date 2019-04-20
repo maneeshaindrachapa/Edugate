@@ -37,6 +37,7 @@ import { DashboardCardsComponent } from './dashboard/dashboard-cards/dashboard-c
 import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.component';
 import { AddStudentComponent } from './dashboard/add-student/add-student.component';
 import { ClassService } from './services/class.service';
+import { SearchStudentComponent } from './dashboard/search-student/search-student.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -62,7 +63,8 @@ export function tokenGetter() {
     DashboardNavbarComponent,
     DashboardCardsComponent,
     EditProfileComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    SearchStudentComponent
   ],
   imports: [
     NgbModule,
