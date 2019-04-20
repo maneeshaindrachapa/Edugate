@@ -37,15 +37,15 @@ export class AuthService {
   // get profile details
   public getStudentProfile(id) {
     // tslint:disable-next-line:max-line-length
-    return this.http.get('http://localhost:8080/students/get/:' + id, { headers: this.headers }).pipe(map(res => res));
+    return this.http.get('http://localhost:8080/students/get/' + id, { headers: this.headers }).pipe(map(res => res));
   }
   public getTeacherProfile(id) {
     // tslint:disable-next-line:max-line-length
-    return this.http.get('http://localhost:8080/teachers/get/:' + id, { headers: this.headers }).pipe(map(res => res));
+    return this.http.get('http://localhost:8080/teachers/get/' + id, { headers: this.headers }).pipe(map(res => res));
   }
   public getAssistantProfile(id) {
     // tslint:disable-next-line:max-line-length
-    return this.http.get('http://localhost:8080/assistants/get/:' + id, { headers: this.headers }).pipe(map(res => res));
+    return this.http.get('http://localhost:8080/assistants/get/' + id, { headers: this.headers }).pipe(map(res => res));
   }
 
   /*get people*/
