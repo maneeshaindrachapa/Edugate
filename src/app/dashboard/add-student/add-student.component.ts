@@ -13,7 +13,7 @@ export class AddStudentComponent implements OnInit {
   profile_pic = 'add-student-avatar.jpg'; // default prof pic
   classes = [];
   batches = [];
-
+  admissionDate = '';
   /* data tabel for classes */
   rows = [];
   columns = [
@@ -23,10 +23,8 @@ export class AddStudentComponent implements OnInit {
     { prop: 'group_id', name: 'Group' },
     { prop: 'day_of_week', name: 'Day' },
     { prop: 'starting_time', name: 'Time' },
-    { prop: 'fees', name: 'Fees' },
-    /*{prop: 'fullPackPrice', name: 'Full Pack Price'},*/
+    { prop: 'fees', name: 'Fees' }
   ];
-
   selected = [];
   /*************/
 
@@ -84,10 +82,11 @@ export class AddStudentComponent implements OnInit {
       alert('error');
     }
   }
-  /***********************/
+  /******************************/
 
   getClasses() {
     this.classes = [];
+    this.selected = [];
     this.classSer.getClasses().subscribe(success => {
       for (let i = 0; i < success['data'].length; i++) {
         this.classes.push(success['data'][i]);

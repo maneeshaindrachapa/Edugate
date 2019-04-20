@@ -178,7 +178,7 @@
               </span>
             </div>
             <input type="date" class="form-control" placeholder="Admission Date" (focus)="focus=true"
-              (blur)="focus=false">
+            [(ngModel)]='admissionDate' name='admissionDate' (blur)="focus=false">
           </div>
           <label>Classes *</label>
           <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
