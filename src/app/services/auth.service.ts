@@ -47,4 +47,10 @@ export class AuthService {
     // tslint:disable-next-line:max-line-length
     return this.http.get('http://localhost:8080/assistants/get/:' + id, { headers: this.headers }).pipe(map(res => res));
   }
+
+  /*get people*/
+  public getStudents() {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get('http://localhost:8080/students/', { headers: this.headers }).pipe(map(res => res));
+  }
 }
