@@ -10,6 +10,7 @@ import { OwlModule } from 'ngx-owl-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { AlertModule } from 'ngx-alerts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -68,6 +69,7 @@ export function tokenGetter() {
   ],
   imports: [
     NgbModule,
+    AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'left'}),
     InViewportModule,
     CountUpModule,
     SlideshowModule,
