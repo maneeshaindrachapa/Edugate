@@ -1,24 +1,39 @@
 <app-dashboard-navbar></app-dashboard-navbar>
-<div class="container">
-  <div class="row search-bar">
-    <div class="col-md-8 ml-auto mr-auto">
-      <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-        <input type="text" class="form-control" placeholder="Search Student" (focus)="focus=true" (blur)="focus=false"
-        [(ngModel)]='searchTxt' name='searchTxt'>
-        <div class="input-group-append" (click)="search()">
-          <span class="input-group-text" id="basic-addon1"><i class="fas fa-search" aria-hidden="true"></i></span>
+<div class="wrapper">
+  <div class="container">
+    <div class="row search-bar">
+      <div class="col-md-8 ml-auto mr-auto">
+        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+          <input type="text" class="form-control" placeholder="Search Student" (focus)="focus=true" (blur)="focus=false"
+            [(ngModel)]='searchTxt' name='searchTxt'>
+          <div class="input-group-append" (click)="search()">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-search" aria-hidden="true"></i></span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row tabel">
-    <div class="col-md-12 ml-auto mr-auto">
-      <div fxLayout="row" fxLayoutAlign="center">
-        <div class="table" style="padding: 20px;">
-          <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50"
-            [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [selected]="selected" [selectionType]="'single'"
-            (select)="selectStudent($event)">
-          </ngx-datatable>
+    <div class="row tabel">
+        <ngx-alerts style="font-family: 'kiona' !important;"></ngx-alerts>
+      <div class="col-md-12 ml-auto mr-auto">
+        <div fxLayout="row" fxLayoutAlign="center">
+          <div class="table" style="padding: 20px;">
+            <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50"
+              [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [selected]="selected" [selectionType]="'single'"
+              (select)="selectStudent($event)">
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row icons">
+      <div class="col-md-8 ml-auto mr-auto">
+        <div class="button-center">
+          <button class="btn btn-default btn-round" (click)='viewProfile()'><i class="fas fa-user"></i> &nbsp; View
+            Profile</button>
+          <!-- <button class="btn btn-default btn-round" (click)='editProfile()'><i class="fas fa-user-edit"></i> &nbsp; Edit
+            Profile</button> -->
+          <button class="btn btn-default btn-round" (click)='deleteProfile()'><i class="fas fa-trash"></i> &nbsp; Delete
+            Profile</button>
         </div>
       </div>
     </div>

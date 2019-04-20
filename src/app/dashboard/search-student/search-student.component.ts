@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-search-student',
@@ -21,15 +22,13 @@ export class SearchStudentComponent implements OnInit {
   selected = [];
   /*************/
   student: any;
-
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private alertService: AlertService) { }
 
   ngOnInit() {
     this.getallstudents();
   }
   selectStudent(t) {
     this.student = t.selected[0];
-    console.log(this.student);
   }
   getallstudents() {
     this.allstudents = [];
@@ -56,6 +55,17 @@ export class SearchStudentComponent implements OnInit {
           this.rows.push(this.allstudents[i]);
         }
       }
+    }
+  }
+  viewProfile() {
+    if (this.selected.length !== 0) {
+      this.auth.getStudentProfile(this.selected[0]['student_id']).subscribe(success => {
+        console.log(success);
+      }, error => {
+        console.log(error);
+      });
+    } else {
+      this.alertService.warning('Please Select a Student');
     }
   }
 }
