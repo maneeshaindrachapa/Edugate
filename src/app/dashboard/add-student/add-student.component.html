@@ -5,6 +5,7 @@
   </div>
   <div class="section profile-content">
     <div class="container">
+      <ngx-alerts style="font-family: 'kiona' !important;"></ngx-alerts>
       <div class="owner">
         <div class="avatar">
           <img src="./assets/img/avatar/{{profile_pic}}" alt="Circle Image"
@@ -14,7 +15,8 @@
           <h4 class="title">Add New Student<br /></h4>
         </div>
       </div>
-      <h4>Personal Information <br><span class="req-f">* Required Fields</span><br><span class="req-f"><i class="fas fa-check-circle"></i>&nbsp;to
+      <h4>Personal Information <br><span class="req-f">* Required Fields</span><br><span class="req-f"><i
+            class="fas fa-check-circle"></i>&nbsp;to
           select the details as the same details filled earlier</span><br><span class="req-f"><i
             class="fas fa-plus-circle"></i>&nbsp;to select details from a list</span></h4>
       <div class="row">
@@ -178,7 +180,7 @@
               </span>
             </div>
             <input type="date" class="form-control" placeholder="Admission Date" (focus)="focus=true"
-            [(ngModel)]='admissionDate' name='admissionDate' (blur)="focus=false">
+              [(ngModel)]='admissionDate' name='admissionDate' (blur)="focus=false">
           </div>
           <label>Classes *</label>
           <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -204,8 +206,9 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="center">
               <div class="table" style="padding: 20px;">
-                <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
-                  [rowHeight]="'auto'" [limit]="10" [selected]="selected" [selectionType]="'multiClick'" (select)="selectClass($event)">
+                <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [columns]="columns"
+                  [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [selected]="selected"
+                  [selectionType]="'multiClick'" (select)="selectClass($event)">
                 </ngx-datatable>
               </div>
             </div>
@@ -230,8 +233,9 @@
               </button>
             </div>
             <div class="form-check-radio" *ngFor='let batch of batches'>
-              <label class="form-check-label" >
-                <input class="form-check-input" [(ngModel)]="batchDetails" type="radio" name="batchDetails" value="{{batch['year']}}{{batch['category']}}" >
+              <label class="form-check-label">
+                <input class="form-check-input" [(ngModel)]="batchDetails" type="radio" name="batchDetails"
+                  value="{{batch['year']}}{{batch['category']}}">
                 {{batch['category']}} &nbsp; {{batch['year']}}
                 <span class="form-check-sign"></span>
               </label>

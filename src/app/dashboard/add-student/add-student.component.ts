@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassService } from 'src/app/services/class.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-add-student',
@@ -31,7 +32,8 @@ export class AddStudentComponent implements OnInit {
   personalInfo = { firstName: '', lastName: '', address: '', city: '', telephone: '', mobilePhone: '', birthday: '' };
   guardinaInfo = { name: '', address: '', city: '', telephone: '', emergency: '' };
   batchDetails = '';
-  constructor(private classSer: ClassService, config: NgbModalConfig, private modalService: NgbModal) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(private classSer: ClassService, config: NgbModalConfig, private modalService: NgbModal, private alertService: AlertService) { }
 
   ngOnInit() {
   }
@@ -58,28 +60,28 @@ export class AddStudentComponent implements OnInit {
     if (this.personalInfo.address !== '') {
       this.guardinaInfo.address = this.personalInfo.address;
     } else {
-      alert('error');
+      this.alertService.danger('Please Select a Address in Personal Information');
     }
   }
   sameCity() {
     if (this.personalInfo.city !== '') {
       this.guardinaInfo.city = this.personalInfo.city;
     } else {
-      alert('error');
+      this.alertService.danger('Please Select a City in Personal Information');
     }
   }
   sameTelephone() {
     if (this.personalInfo.telephone !== '') {
       this.guardinaInfo.telephone = this.personalInfo.telephone;
     } else {
-      alert('error');
+      this.alertService.danger('Please Select a Telephone in Personal Information');
     }
   }
   sameEmergency() {
     if (this.guardinaInfo.telephone !== '') {
       this.guardinaInfo.emergency = this.guardinaInfo.telephone;
     } else {
-      alert('error');
+      this.alertService.danger('Please Select a Telephone in Guardian Information');
     }
   }
   /******************************/

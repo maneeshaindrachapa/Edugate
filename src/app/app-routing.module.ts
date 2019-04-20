@@ -14,7 +14,7 @@ import { SearchStudentComponent } from './dashboard/search-student/search-studen
 const routes: Routes = [{ path: '', component: HomepageComponent },
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent },
-{ path: 'dashboard', component: DashboardAdminComponent, canActivate: [AuthGuard] },
+{ path: 'dashboard', component: DashboardAdminComponent, canActivate: [AuthGuard]},
 { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
 { path: 'addStudent' , component : AddStudentComponent, canActivate: [AuthGuard]},
 { path: 'searchStudent' , component : SearchStudentComponent, canActivate: [AuthGuard]}
