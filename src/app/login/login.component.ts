@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
   login() {
     if (this.user.username !== '' && this.user.password !== '') {
       this.auth.login(this.user.username, this.user.password).subscribe(success => {
