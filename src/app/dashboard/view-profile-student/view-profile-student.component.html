@@ -1,0 +1,258 @@
+<app-dashboard-navbar></app-dashboard-navbar>
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/8.png');">
+    <div class="filter"></div>
+  </div>
+  <div class="section profile-content">
+    <div class="container">
+      <ngx-alerts style="font-family: 'kiona' !important;"></ngx-alerts>
+      <div class="owner">
+        <div class="avatar">
+          <img src="./assets/img/avatar/{{profile_pic}}" alt="Circle Image"
+            class="img-circle img-no-padding img-responsive">
+        </div>
+        <div class="name">
+          <h4 class="title">{{studentDetails['first_name']}}&nbsp;{{studentDetails['last_name']}}<br /></h4>
+        </div>
+      </div>
+      <h4>Personal Information</h4>
+      <div class="row">
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>First Name </label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-circle-10"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" [(ngModel)]="studentDetails['first_name']" placeholder="First Name" (focus)="focus=true" (blur)="focus=false"
+               name='firstName' disabled>
+          </div>
+          <label>Last Name </label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-circle-10"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" [(ngModel)]="studentDetails['last_name']" placeholder="Last Name" (focus)="focus=true" (blur)="focus=false"
+             name='lastName' disabled>
+          </div>
+          <label>Telephone </label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-mobile"></i>
+              </span>
+            </div>
+            <input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Telephone"
+              (focus)="focus=true" (blur)="focus=false"  name='telephone' [(ngModel)]="studentDetails['telephone']['number']">
+            </div>
+          <!-- <label>Mobile Phone</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-mobile"></i>
+              </span>
+            </div>
+            <input input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Mobile Phone"
+              (focus)="focus=true" (blur)="focus=false"  name='mobilePhone'>
+          </div> -->
+        </div>
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>Address </label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-map-big"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Address" (focus)="focus=true" (blur)="focus=false"
+               name='address' [(ngModel)]="studentDetails['address']['lines']">
+          </div>
+          <label>City </label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-map-big"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="City" (focus)="focus=true" (blur)="focus=false"
+              name='City' [(ngModel)]="studentDetails['address']['city']">
+          </div>
+          <label>Email </label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-email-85"></i>
+              </span>
+            </div>
+            <input type="email" class="form-control" placeholder="email" (focus)="focus=true" (blur)="focus=false"
+               name='email' [(ngModel)]="studentDetails['email']">
+          </div>
+        </div>
+      </div><br>
+
+      <h4>Guardian Information</h4>
+      <div class="row">
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>Name </label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-circle-10"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Name" (focus)="focus=true" (blur)="focus=false"
+              name='name' [(ngModel)]="studentDetails['guardian']['name']">
+          </div>
+          <label>Telephone</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-mobile"></i>
+              </span>
+            </div>
+            <input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Telephone"
+              (focus)="focus=true" (blur)="focus=false" name='telephone' [(ngModel)]="studentDetails['guardian']['telephone']">
+          </div>
+          <label>Emergency Contact</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-mobile"></i>
+              </span>
+            </div>
+            <input input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              placeholder="Emergency Contact" (focus)="focus=true" (blur)="focus=false"
+               name='emergency'  [(ngModel)]="studentDetails['emergency_contact']">
+          </div>
+        </div>
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>Address</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-map-big"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Address" (focus)="focus=true" (blur)="focus=false"
+              name='address'  [(ngModel)]="studentDetails['guardian']['address']['lines']">
+          </div>
+          <label>City</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-map-big"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="City" (focus)="focus=true" (blur)="focus=false"
+               name='city'  [(ngModel)]="studentDetails['guardian']['address']['city']">
+          </div>
+        </div>
+      </div><br>
+
+      <h4>Class Information</h4>
+      <div class="row">
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>Admission Batch</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-time-alarm"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Admission Batch" (focus)="focus=true"
+               name='admissionBatch' [(ngModel)]="studentDetails['admission_batch']" (blur)="focus=false" disabled>
+          </div>
+          <label>Classes *</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-single-copy-04"></i>
+              </span>
+            </div>
+            <input input type="text" class="form-control" placeholder="Classes" (focus)="focus=true"
+              (blur)="focus=false" disabled>
+            <div class="input-group-append" (click)="open(content)">
+              <span class="input-group-text" id="basic-addon1"><i class="fas fa-plus-circle"
+                  aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <!--model-->
+          <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h5 class="modal-title text-center">View Classes</h5>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center">
+              <div class="table" style="padding: 20px;">
+                <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [columns]="columns"
+                  [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [selected]="selected"
+                  [selectionType]="'multiClick'" (select)="selectClass($event)">
+                </ngx-datatable>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="left-side">
+                <button type="button" class="btn btn-default btn-link" (click)="d('Close click')">Remove Classes</button>
+              </div>
+              <div class="divider"></div>
+              <div class="right-side">
+                <button type="button" class="btn btn-danger btn-link" (click)="d('Close click')">Never Mind</button>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>Current Batch</label>
+          <ng-template #content1 let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h5 class="modal-title text-center">Add Batch</h5>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="form-check-radio" *ngFor='let batch of batches'>
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="batchDetails"
+                  value="{{batch['year']}}{{batch['category']}}">
+                {{batch['category']}} &nbsp; {{batch['year']}}
+                <span class="form-check-sign"></span>
+              </label>
+            </div>
+            <div class="modal-footer">
+              <div class="left-side">
+                <button type="button" class="btn btn-default btn-link" (click)="d('Close click')">Add Batch</button>
+              </div>
+              <div class="divider"></div>
+              <div class="right-side">
+                <button type="button" class="btn btn-danger btn-link" (click)="d('Close click')">Never Mind</button>
+              </div>
+            </div>
+          </ng-template>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-single-copy-04"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Admission Batch" (focus)="focus=true"
+              (blur)="focus=false" disabled  name='batchDetails' [(ngModel)]="studentDetails['current_batch']">
+            <div class="input-group-append" (click)='openBatch(content1)'>
+              <span class="input-group-text" id="basic-addon1"><i class="fas fa-plus-circle"
+                  aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-md-12 mr-auto ml-auto">
+          <button class="btn btn-default btn-round" (click)='UpdateStudent()'>Update Student Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
