@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClassService } from 'src/app/services/class.service';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AlertService } from 'ngx-alerts';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-add-student',
@@ -9,6 +10,8 @@ import { AlertService } from 'ngx-alerts';
   styleUrls: ['./add-student.component.scss']
 })
 export class AddStudentComponent implements OnInit {
+  selectedValue = 'bySub';
+  searchTxt = '';
   username = '';
   role = '';
   profile_pic = 'add-student-avatar.jpg'; // default prof pic
@@ -33,7 +36,7 @@ export class AddStudentComponent implements OnInit {
   guardinaInfo = { name: '', address: '', city: '', telephone: '', emergency: '' };
   batchDetails = '';
   // tslint:disable-next-line:max-line-length
-  constructor(private classSer: ClassService, config: NgbModalConfig, private modalService: NgbModal, private alertService: AlertService) { }
+  constructor(private classSer: ClassService, config: NgbModalConfig, private modalService: NgbModal, private alertService: AlertService, private auth: AuthService) { }
 
   ngOnInit() {
   }
@@ -46,7 +49,12 @@ export class AddStudentComponent implements OnInit {
     this.getBatch();
   }
   addStudent() {
-    console.log(this.personalInfo);
+    this.auth.addStudent(this.personalInfo, this.guardinaInfo, this.batchDetails, this.classes)
+      .subscribe(success => {
+        console.log(success);
+      }, error => {
+        console.log(error);
+      });
     console.log(this.guardinaInfo);
   }
   selectClass({ selected }) {
@@ -108,5 +116,41 @@ export class AddStudentComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+  search() {
+    console.log(this.selectedValue);
+    if (this.searchTxt !== '') {
+      this.classes = [];
+      this.selected = [];
+      this.rows = [];
+      if (this.selectedValue === 'bySub') {
+        this.classSer.getClassesBySubject(this.searchTxt).subscribe(success => {
+          for (let i = 0; i < success['data'].length; i++) {
+            this.classes.push(success['data'][i]);
+          }
+          this.rows = this.classes;
+        }, error => {
+          console.log(error);
+        });
+      } else if (this.selectedValue === 'byTeacher') {
+        this.classSer.getClassesByTeacher(this.searchTxt).subscribe(success => {
+          for (let i = 0; i < success['data'].length; i++) {
+            this.classes.push(success['data'][i]);
+          }
+          this.rows = this.classes;
+        }, error => {
+          console.log(error);
+        });
+      } else if (this.selectedValue === 'byBatch') {
+        this.classSer.getClassesByBatch(this.searchTxt).subscribe(success => {
+          for (let i = 0; i < success['data'].length; i++) {
+            this.classes.push(success['data'][i]);
+          }
+          this.rows = this.classes;
+        }, error => {
+          console.log(error);
+        });
+      }
+    }
   }
 }

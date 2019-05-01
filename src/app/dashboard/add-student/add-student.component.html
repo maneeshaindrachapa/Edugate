@@ -204,6 +204,27 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            <div class="row">
+              <div class="col-md-12 ml-auto mr-auto in-par">
+                <div class="inline in-1">
+                  <select class="form-control" [(ngModel)]="selectedValue">
+                    <option value='bySub'>by Subject</option>
+                    <option value='byTeacher'>by Teacher</option>
+                    <option value='byBatch'>by Batch</option>
+                  </select>
+                </div>
+                <div class="inline in-2">
+                  <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                    <input type="text" class="form-control" placeholder="Search" (focus)="focus=true"
+                      (blur)="focus=false" [(ngModel)]='searchTxt' name='searchTxt'>
+                    <div class="input-group-append" (click)="search()">
+                      <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"
+                          aria-hidden="true"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div fxLayout="row" fxLayoutAlign="center">
               <div class="table" style="padding: 20px;">
                 <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [columns]="columns"

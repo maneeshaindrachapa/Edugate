@@ -13,7 +13,7 @@ h6,
 p,
 label,
 .material,
-button {
+button,option,select {
   font-family: "kiona" !important;
 }
 h4 {
@@ -54,7 +54,7 @@ h4 {
 
 .form-control {
   border-color: #495057 !important;
-  border-left: none;
+  /*border-left: none;*/
 }
 
 label {
@@ -138,4 +138,18 @@ input {
   left: 5px;
   opacity: 1;
   font-size: 22px;
+}
+.in-par{
+  display: table;
+}
+.inline{
+  display: table-cell;
+  padding-top:10px;
+  vertical-align: middle;
+}
+.in-1{
+  padding-left: 20px;
+}
+.in-2{
+  padding-right: 20px;
 }
