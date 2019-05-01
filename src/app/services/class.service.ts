@@ -39,4 +39,9 @@ export class ClassService {
   getBatches() {
     return this.http.get('http://localhost:8080/classes/batches', { headers: this.headers }).pipe(map(res => res));
   }
+
+  /* get classes of a  student */
+  getClassesOfStudent(std_id) {
+    return this.http.get('http://localhost:8080/students/get/classes/' + std_id, { headers: this.headers }).pipe(map(res => res));
+  }
 }
