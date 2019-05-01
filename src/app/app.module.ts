@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AlertModule } from 'ngx-alerts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,6 +40,7 @@ import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.comp
 import { AddStudentComponent } from './dashboard/add-student/add-student.component';
 import { ClassService } from './services/class.service';
 import { SearchStudentComponent } from './dashboard/search-student/search-student.component';
+import { ViewProfileStudentComponent } from './dashboard/view-profile-student/view-profile-student.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -65,13 +67,15 @@ export function tokenGetter() {
     DashboardCardsComponent,
     EditProfileComponent,
     AddStudentComponent,
-    SearchStudentComponent
+    SearchStudentComponent,
+    ViewProfileStudentComponent
   ],
   imports: [
     NgbModule,
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'left'}),
     InViewportModule,
     CountUpModule,
+    BrowserAnimationsModule,
     SlideshowModule,
     BrowserModule,
     BarRatingModule,
