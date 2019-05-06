@@ -80,5 +80,26 @@ export class AuthService {
         'class_info': [{ 'class_id': '', 'fees_rate': 1 }]
       }).pipe(map(res => res));
   }
+  /* update student */
+  public updateStudent(personalDetails, GuardianDetails, batchDetails, Classes) {
+    return this.http.post('http://localhost:8080/students/add',
+      {
+        'first_name': personalDetails.first_name,
+        'last_name': personalDetails.last_name,
+        'address': { 'lines': personalDetails.address, 'city': personalDetails.city },
+        'email': personalDetails.email,
+        'telephone': { 'number': personalDetails.telephone, 'mobile': false },
+        'guardian': { 'name': GuardianDetails.name, 'telephone': GuardianDetails.telephone },
+        'emergency_contact': GuardianDetails.emergency_contact,
+        'admission_date': '2019-03-20',
+        'addmission_batch': batchDetails,
+        'current_batch': batchDetails,
+        'class_info': [{ 'class_id': '', 'fees_rate': 1 }]
+      }).pipe(map(res => res));
+  }
+  /* Delete Student */
+  deleteStudent(std_id) {
+    return this.http.delete('http://localhost:8080/students/delete/' + std_id, { headers: this.headers }).pipe(map(res => res));
+  }
 }
 

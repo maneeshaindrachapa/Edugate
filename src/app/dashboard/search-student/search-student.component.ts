@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'ngx-alerts';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-search-student',
@@ -23,7 +24,8 @@ export class SearchStudentComponent implements OnInit {
   selected = [];
   /*************/
   student: any;
-  constructor(private auth: AuthService, private alertService: AlertService, private router: Router) { }
+  student_ = { student_id: '', first_name: '', last_name: '' };
+  constructor(private modalService: NgbModal, private auth: AuthService, private alertService: AlertService, private router: Router) { }
 
   ngOnInit() {
     this.allstudents = [];
@@ -34,8 +36,18 @@ export class SearchStudentComponent implements OnInit {
       console.log(error);
     });
   }
+  deleteProfile(content) {
+    if (this.student != null) {
+      this.modalService.open(content);
+    } else {
+      this.alertService.warning('Please Select a Student');
+    }
+  }
   selectStudent(t) {
     this.student = t.selected[0];
+    this.student_.student_id = this.student['student_id'];
+    this.student_.first_name = this.student['first_name'];
+    this.student_.last_name = this.student['last_name'];
   }
   getallstudents() {
     this.allstudents = [];
@@ -63,6 +75,16 @@ export class SearchStudentComponent implements OnInit {
         }
       }
     }
+  }
+  deleteStudent() {
+    this.auth.deleteStudent(this.student_.student_id).subscribe(success => {
+      this.getallstudents();
+      this.alertService.success('Successfully Deleted');
+      this.modalService.dismissAll();
+    }, error => {
+      this.alertService.danger('Error in Server');
+      this.modalService.dismissAll();
+    });
   }
   viewProfile() {
     if (this.selected.length !== 0) {

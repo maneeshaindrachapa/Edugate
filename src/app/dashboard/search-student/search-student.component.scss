@@ -77,18 +77,18 @@ input:focus {
   display: block;
   text-align: center;
 }
-.btn {
+.spec {
   margin-top: 20px;
   background-color: #242c42;
   border-color: transparent;
   transition: all 0.8s ease;
 }
-.btn:hover {
+.spec:hover {
   color: #000;
   border-color: transparent;
   box-shadow: inset 200px 0 0 0 #e0e0e0;
 }
-.btn::after {
+.spec::after {
   background-color: white;
   transform-origin: left;
   transition: width 0.25s ease;
