@@ -18,8 +18,10 @@ export class AddStudentComponent implements OnInit {
   classes = [];
   batches = [];
   admissionDate = '';
+  classes_ = [];
   /* data tabel for classes */
   rows = [];
+  rows_ = [];
   columns = [
     { prop: 'subject_id', name: 'Subject' },
     { prop: 'batch_id', name: 'Batch' },
@@ -30,6 +32,7 @@ export class AddStudentComponent implements OnInit {
     { prop: 'fees', name: 'Fees' }
   ];
   selected = [];
+  selected_ = [];
   /*************/
 
   personalInfo = { firstName: '', lastName: '', address: '', city: '', telephone: '', mobilePhone: '', birthday: '' };
@@ -48,6 +51,31 @@ export class AddStudentComponent implements OnInit {
     this.modalService.open(content);
     this.getBatch();
   }
+
+  addClasses() {
+    if (this.rows_.length > 0) {
+      let t = true;
+      for (let i = 0; i < this.selected.length; i++) {
+        for (let j = 0; j < this.rows_.length; j++) {
+          if (this.rows_[j]['subject_id'] === this.selected[i]['subject_id']) {
+            t = false;
+            break;
+          }
+        }
+        if (t) {
+          this.classes_.push(this.selected[i]);
+        }
+      }
+    } else {
+      for (let i = 0; i < this.selected.length; i++) {
+        this.classes_.push(this.selected[i]);
+      }
+    }
+    this.rows_ = this.classes_;
+    console.log(this.rows_);
+    this.modalService.dismissAll();
+  }
+
   addStudent() {
     this.auth.addStudent(this.personalInfo, this.guardinaInfo, this.batchDetails, this.classes)
       .subscribe(success => {
@@ -55,10 +83,8 @@ export class AddStudentComponent implements OnInit {
       }, error => {
         console.log(error);
       });
-    console.log(this.guardinaInfo);
   }
   selectClass({ selected }) {
-    console.log('Select Event', selected, this.selected);
     this.selected.splice(0, this.selected.length);
     this.selected.push(...selected);
   }
@@ -102,6 +128,7 @@ export class AddStudentComponent implements OnInit {
         this.classes.push(success['data'][i]);
       }
       this.rows = this.classes;
+      console.log(this.classes);
     }, error => {
       console.log(error);
     });
