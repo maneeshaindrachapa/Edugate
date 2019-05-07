@@ -9,6 +9,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthService {
   student: any;
   teacher: any;
+  assistant: any;
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -30,6 +31,12 @@ export class AuthService {
   }
   setTeacher(s) {
     this.teacher = s;
+  }
+  getAssistant() {
+    return this.assistant;
+  }
+  setAssistant(s) {
+    this.assistant = s;
   }
 
   // login and register;
@@ -69,8 +76,10 @@ export class AuthService {
     return this.http.get('http://localhost:8080/students/', { headers: this.headers }).pipe(map(res => res));
   }
   public getTeachers() {
-    // tslint:disable-next-line:max-line-length
     return this.http.get('http://localhost:8080/teachers/', { headers: this.headers }).pipe(map(res => res));
+  }
+  public getAssistants() {
+    return this.http.get('http://localhost:8080/assistants/', { headers: this.headers }).pipe(map(res => res));
   }
 
   /* add student */
@@ -146,5 +155,41 @@ export class AuthService {
   deleteTeacher(tea_id) {
     return this.http.delete('http://localhost:8080/teachers/delete/' + tea_id, { headers: this.headers }).pipe(map(res => res));
   }
+
+  /* add assistant */
+  public addAssistant(personalDetails) {
+    return this.http.post('http://localhost:8080/assistants/add',
+      {
+        'first_name': personalDetails.firstName,
+        'last_name': personalDetails.lastName,
+        'address': personalDetails.address,
+        'city': personalDetails.city,
+        'email': personalDetails.email,
+        'telephone': personalDetails.telephone,
+        'nic': personalDetails.nic,
+        'admission_date': personalDetails.admissiondate,
+        'birthday': personalDetails.birthday
+      }, { headers: this.headers }).pipe(map(res => res));
+  }
+  /* Delete assistant */
+  deleteAssistant(ass_id) {
+    return this.http.delete('http://localhost:8080/assistants/delete/' + ass_id, { headers: this.headers }).pipe(map(res => res));
+  }
+  /* Edit Assistant */
+  public editAssistant(personalDetails) {
+    return this.http.post('http://localhost:8080/assistants/update/:' + personalDetails['assistant_id'],
+      {
+        'first_name': personalDetails['first_name'],
+        'last_name': personalDetails['last_name'],
+        'address': personalDetails['address']['lines'],
+        'city': personalDetails['address']['city'],
+        'email': personalDetails['email'],
+        'telephone': personalDetails['telephone'],
+        'nic': personalDetails['nic'],
+        'admission_date': personalDetails['admission_date'],
+        'birthday': personalDetails['birthday']
+      }, { headers: this.headers }).pipe(map(res => res));
+  }
 }
+
 
