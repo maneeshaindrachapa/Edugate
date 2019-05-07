@@ -11,6 +11,8 @@ import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.comp
 import { AddStudentComponent } from './dashboard/add-student/add-student.component';
 import { SearchStudentComponent } from './dashboard/search-student/search-student.component';
 import { ViewProfileStudentComponent } from './dashboard/view-profile-student/view-profile-student.component';
+import { AddTeacherComponent } from './dashboard/add-teacher/add-teacher.component';
+import { SearchTeacherComponent } from './dashboard/search-teacher/search-teacher.component';
 
 const routes: Routes = [{ path: '', component: HomepageComponent },
 { path: 'login', component: LoginComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },
 { path: 'dashboard', component: DashboardAdminComponent, canActivate: [AuthGuard]},
 { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
 { path: 'addStudent' , component : AddStudentComponent, canActivate: [AuthGuard]},
+{ path: 'addTeacher' , component : AddTeacherComponent, canActivate: [AuthGuard]},
+{ path: 'searchTeacher' , component : SearchTeacherComponent, canActivate: [AuthGuard]},
 { path: 'searchStudent' , component : SearchStudentComponent, canActivate: [AuthGuard]},
 { path: 'viewProfileStudent' , component : ViewProfileStudentComponent, canActivate: [AuthGuard]}
 ];

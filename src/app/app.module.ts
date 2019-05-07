@@ -41,6 +41,8 @@ import { AddStudentComponent } from './dashboard/add-student/add-student.compone
 import { ClassService } from './services/class.service';
 import { SearchStudentComponent } from './dashboard/search-student/search-student.component';
 import { ViewProfileStudentComponent } from './dashboard/view-profile-student/view-profile-student.component';
+import { AddTeacherComponent } from './dashboard/add-teacher/add-teacher.component';
+import { SearchTeacherComponent } from './dashboard/search-teacher/search-teacher.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -68,7 +70,9 @@ export function tokenGetter() {
     EditProfileComponent,
     AddStudentComponent,
     SearchStudentComponent,
-    ViewProfileStudentComponent
+    ViewProfileStudentComponent,
+    AddTeacherComponent,
+    SearchTeacherComponent
   ],
   imports: [
     NgbModule,
