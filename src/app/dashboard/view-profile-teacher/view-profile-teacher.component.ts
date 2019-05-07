@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClassService } from 'src/app/services/class.service';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-view-profile-teacher',
@@ -25,7 +26,8 @@ export class ViewProfileTeacherComponent implements OnInit {
   ];
   selected = [];
   /*************/
-  constructor(private auth: AuthService, private modalService: NgbModal, private classSer: ClassService) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(private auth: AuthService, private alertService: AlertService, private modalService: NgbModal, private classSer: ClassService) { }
 
   ngOnInit() {
     this.teacherDetails = this.auth.getTeacher();
@@ -50,8 +52,10 @@ export class ViewProfileTeacherComponent implements OnInit {
   editTeacher() {
     this.auth.editTeacher(this.teacherDetails).subscribe(success => {
       console.log(success);
+      this.alertService.success('Details Updated Successfully');
     }, error => {
       console.log(error);
+      this.alertService.danger('Error Updating Details');
     });
   }
 }

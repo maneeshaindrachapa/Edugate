@@ -55,4 +55,8 @@ export class ViewProfileStudentComponent implements OnInit {
     });
   }
 
+  updateStudent() {
+
+  }
+
 }
