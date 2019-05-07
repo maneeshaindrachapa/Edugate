@@ -59,8 +59,11 @@ export class AuthService {
 
   /*get people*/
   public getStudents() {
-    // tslint:disable-next-line:max-line-length
     return this.http.get('http://localhost:8080/students/', { headers: this.headers }).pipe(map(res => res));
+  }
+  public getTeachers() {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get('http://localhost:8080/teachers/', { headers: this.headers }).pipe(map(res => res));
   }
 
   /* add student */
@@ -100,6 +103,26 @@ export class AuthService {
   /* Delete Student */
   deleteStudent(std_id) {
     return this.http.delete('http://localhost:8080/students/delete/' + std_id, { headers: this.headers }).pipe(map(res => res));
+  }
+
+  /* add teacher */
+  public addTeacher(personalDetails) {
+    return this.http.post('http://localhost:8080/teachers/add',
+      {
+        'first_name': personalDetails.firstName,
+        'last_name': personalDetails.lastName,
+        'address': personalDetails.address,
+        'city': personalDetails.city,
+        'email': personalDetails.email,
+        'telephone': personalDetails.telephone,
+        'nic': personalDetails.nic,
+        'admission_date': personalDetails.admissiondate,
+        'birthday': personalDetails.birthday
+      }, { headers: this.headers }).pipe(map(res => res));
+  }
+  /* Delete teacher */
+  deleteTeacher(tea_id) {
+    return this.http.delete('http://localhost:8080/teachers/delete/' + tea_id, { headers: this.headers }).pipe(map(res => res));
   }
 }
 
