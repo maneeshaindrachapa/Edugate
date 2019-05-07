@@ -80,6 +80,7 @@ export class SearchStudentComponent implements OnInit {
     this.auth.deleteStudent(this.student_.student_id).subscribe(success => {
       this.getallstudents();
       this.alertService.success('Successfully Deleted');
+      this.student = null;
       this.modalService.dismissAll();
     }, error => {
       this.alertService.danger('Error in Server');

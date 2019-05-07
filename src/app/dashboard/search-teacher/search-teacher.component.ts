@@ -46,7 +46,7 @@ export class SearchTeacherComponent implements OnInit {
     if (this.teacher != null) {
       this.modalService.open(content);
     } else {
-      this.alertService.warning('Please Select a Student');
+      this.alertService.warning('Please Select a Teacher');
     }
   }
   getallteachers() {
@@ -62,6 +62,7 @@ export class SearchTeacherComponent implements OnInit {
     this.auth.deleteTeacher(this.teacher_.teacher_id).subscribe(success => {
       this.getallteachers();
       this.alertService.success('Successfully Deleted');
+      this.teacher = null;
       this.modalService.dismissAll();
     }, error => {
       this.alertService.danger('Error in Server');
