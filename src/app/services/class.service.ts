@@ -44,4 +44,9 @@ export class ClassService {
   getClassesOfStudent(std_id) {
     return this.http.get('http://localhost:8080/students/get/classes/' + std_id, { headers: this.headers }).pipe(map(res => res));
   }
+
+  /*get classes of a teacher */
+  getClassesOfTeacher(tea_id) {
+    return this.http.get('http://localhost:8080/teachers/get/classes/' + tea_id, { headers: this.headers }).pipe(map(res => res));
+  }
 }

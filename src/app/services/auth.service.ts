@@ -8,6 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
   student: any;
+  teacher: any;
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -17,12 +18,18 @@ export class AuthService {
   private jwtHelper = new JwtHelperService();
   constructor(private http: HttpClient) {
   }
-  // getter and  setter for student
+  // getters and  setters
   getStudent() {
     return this.student;
   }
   setStudent(s) {
     this.student = s;
+  }
+  getTeacher() {
+    return this.teacher;
+  }
+  setTeacher(s) {
+    this.teacher = s;
   }
 
   // login and register;
@@ -118,6 +125,21 @@ export class AuthService {
         'nic': personalDetails.nic,
         'admission_date': personalDetails.admissiondate,
         'birthday': personalDetails.birthday
+      }, { headers: this.headers }).pipe(map(res => res));
+  }
+  /* Edit Teacher */
+  public editTeacher(personalDetails) {
+    return this.http.post('http://localhost:8080/teachers/update/:' + personalDetails['teacher_id'],
+      {
+        'first_name': personalDetails['first_name'],
+        'last_name': personalDetails['last_name'],
+        'address': personalDetails['address']['lines'],
+        'city': personalDetails['address']['city'],
+        'email': personalDetails['email'],
+        'telephone': personalDetails['telephone'],
+        'nic': personalDetails['nic'],
+        'admission_date': personalDetails['admission_date'],
+        'birthday': personalDetails['birthday']
       }, { headers: this.headers }).pipe(map(res => res));
   }
   /* Delete teacher */
