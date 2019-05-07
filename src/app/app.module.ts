@@ -44,6 +44,9 @@ import { ViewProfileStudentComponent } from './dashboard/view-profile-student/vi
 import { AddTeacherComponent } from './dashboard/add-teacher/add-teacher.component';
 import { SearchTeacherComponent } from './dashboard/search-teacher/search-teacher.component';
 import { ViewProfileTeacherComponent } from './dashboard/view-profile-teacher/view-profile-teacher.component';
+import { AddAssistantComponent } from './dashboard/add-assistant/add-assistant.component';
+import { SearchAssistantComponent } from './dashboard/search-assistant/search-assistant.component';
+import { ViewProfileAssistantComponent } from './dashboard/view-profile-assistant/view-profile-assistant.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -74,7 +77,10 @@ export function tokenGetter() {
     ViewProfileStudentComponent,
     AddTeacherComponent,
     SearchTeacherComponent,
-    ViewProfileTeacherComponent
+    ViewProfileTeacherComponent,
+    AddAssistantComponent,
+    SearchAssistantComponent,
+    ViewProfileAssistantComponent
   ],
   imports: [
     NgbModule,

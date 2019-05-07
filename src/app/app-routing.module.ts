@@ -14,6 +14,9 @@ import { ViewProfileStudentComponent } from './dashboard/view-profile-student/vi
 import { AddTeacherComponent } from './dashboard/add-teacher/add-teacher.component';
 import { SearchTeacherComponent } from './dashboard/search-teacher/search-teacher.component';
 import { ViewProfileTeacherComponent } from './dashboard/view-profile-teacher/view-profile-teacher.component';
+import { AddAssistantComponent } from './dashboard/add-assistant/add-assistant.component';
+import { SearchAssistantComponent } from './dashboard/search-assistant/search-assistant.component';
+import { ViewProfileAssistantComponent } from './dashboard/view-profile-assistant/view-profile-assistant.component';
 
 const routes: Routes = [{ path: '', component: HomepageComponent },
 { path: 'login', component: LoginComponent },
@@ -22,10 +25,13 @@ const routes: Routes = [{ path: '', component: HomepageComponent },
 { path: 'editprofile', component: EditProfileComponent, canActivate: [AuthGuard] },
 { path: 'addStudent' , component : AddStudentComponent, canActivate: [AuthGuard]},
 { path: 'addTeacher' , component : AddTeacherComponent, canActivate: [AuthGuard]},
+{ path: 'addAssistant' , component : AddAssistantComponent, canActivate: [AuthGuard]},
 { path: 'searchTeacher' , component : SearchTeacherComponent, canActivate: [AuthGuard]},
 { path: 'searchStudent' , component : SearchStudentComponent, canActivate: [AuthGuard]},
+{ path: 'searchAssistant' , component : SearchAssistantComponent, canActivate: [AuthGuard]},
 { path: 'viewProfileStudent' , component : ViewProfileStudentComponent, canActivate: [AuthGuard]},
-{ path: 'viewProfileTeacher' , component : ViewProfileTeacherComponent, canActivate: [AuthGuard]}
+{ path: 'viewProfileTeacher' , component : ViewProfileTeacherComponent, canActivate: [AuthGuard]},
+{ path: 'viewProfileAssistant' , component : ViewProfileAssistantComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
