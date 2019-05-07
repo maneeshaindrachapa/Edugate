@@ -36,4 +36,10 @@ export class DashboardCardsComponent implements OnInit {
   searchTeacher() {
     this.router.navigate(['searchTeacher']);
   }
+  addAssistant() {
+    this.router.navigate(['addAssistant']);
+  }
+  searchAssistant() {
+    this.router.navigate(['searchAssistant']);
+  }
 }
