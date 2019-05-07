@@ -1,0 +1,122 @@
+<app-dashboard-navbar></app-dashboard-navbar>
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/10.jpg');">
+    <div class="filter"></div>
+  </div>
+  <div class="section profile-content">
+    <div class="container">
+      <ngx-alerts style="font-family: 'kiona' !important;"></ngx-alerts>
+      <div class="owner">
+        <div class="avatar">
+          <img src="./assets/img/avatar/{{profile_pic}}" alt="Circle Image"
+            class="img-circle img-no-padding img-responsive">
+        </div>
+        <div class="name">
+          <h4 class="title">Add New Teacher<br/></h4>
+        </div>
+      </div>
+      <h4>Personal Information <br><span class="req-f">* Required Fields</span><br></h4>
+      <div class="row">
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>First Name *</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-circle-10"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="First Name" (focus)="focus=true" (blur)="focus=false"
+            [(ngModel)]='personalInfo.firstName' name='firstName'>
+          </div>
+          <label>Last Name *</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-circle-10"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Last Name" (focus)="focus=true" (blur)="focus=false"
+            [(ngModel)]='personalInfo.lastName' name='lastName'>
+          </div>
+          <label>Telephone *</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-mobile"></i>
+              </span>
+            </div>
+            <input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Telephone"
+            [(ngModel)]='personalInfo.telephone' (focus)="focus=true" (blur)="focus=false" name='telephone'>
+          </div>
+          <label>Mobile Phone</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-mobile"></i>
+              </span>
+            </div>
+            <input input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Mobile Phone"
+            [(ngModel)]='personalInfo.mobilePhone' (focus)="focus=true" (blur)="focus=false"  name='mobilePhone'>
+          </div>
+          <label>Admission Date *</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-paper"></i>
+              </span>
+            </div>
+            <input type="date" class="form-control" placeholder="Birthday" (focus)="focus=true" (blur)="focus=false"
+            [(ngModel)]='personalInfo.admissiondate' name='admissiondate'>
+          </div>
+        </div>
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>Address *</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-map-big"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Address" (focus)="focus=true" (blur)="focus=false"
+            [(ngModel)]='personalInfo.address' name='address'>
+          </div>
+          <label>City *</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-map-big"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="City" (focus)="focus=true" (blur)="focus=false"
+            [(ngModel)]='personalInfo.city' name='city'>
+          </div>
+          <label>Birthday *</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-time-alarm"></i>
+              </span>
+            </div>
+            <input type="date" class="form-control" placeholder="Birthday" (focus)="focus=true" (blur)="focus=false"
+            [(ngModel)]='personalInfo.birthday' name='birthday'>
+          </div>
+          <label>NIC *</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-credit-card"></i>
+              </span>
+            </div>
+            <input type="text" class="form-control" placeholder="NIC" (focus)="focus=true" (blur)="focus=false"
+            [(ngModel)]='personalInfo.nic' name='nic'>
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-md-12 mr-auto ml-auto">
+          <button class="btn btn-default btn-round" (click)='addTeacher()'>Add Teacher</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

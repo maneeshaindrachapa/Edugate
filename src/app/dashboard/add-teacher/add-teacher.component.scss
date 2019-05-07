@@ -1,0 +1,155 @@
+.profile-content {
+    padding-top: 0 !important;
+    position: relative;
+    z-index: 5;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  label,
+  .material,
+  button,option,select {
+    font-family: "kiona" !important;
+  }
+  h4 {
+    font-weight: 400;
+  }
+  .section {
+    padding-bottom: 0px !important;
+  }
+  
+  .input-group-prepend {
+    margin-right: -1px;
+    display: flex;
+    border: #495057 1px solid;
+  }
+  
+  .input-group.form-group-no-border .input-group-prepend .input-group-text {
+    border-right: transparent !important;
+    background: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    transition: all 300ms linear;
+  }
+  
+  .input-group-text {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+  }
+  
+  .form-control {
+    border-color: #495057 !important;
+    /*border-left: none;*/
+  }
+  
+  label {
+    margin-top: 0.5rem;
+  }
+  
+  .page-header.page-header-xs {
+    min-height: 40vh !important;
+  }
+  input {
+    font-family: "Quicksand", sans-serif;
+  }
+  .btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .reset {
+    float: right;
+  }
+  .profile-content {
+    background-image: url("../../../assets/img/edit-profile-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    min-height: 490px;
+  }
+  .input-group-append {
+    margin-left: -1px;
+    display: flex;
+    border: #495057 1px solid;
+    transition: all 0.5s ease;
+  }
+  .input-group-append:hover {
+    background-color: #000;
+    .fa-check-circle {
+      color: #fff;
+    }
+    .fa-plus-circle {
+      color: #fff;
+    }
+  }
+  .input-group .input-group-append .input-group-text {
+    border: none;
+  }
+  .input-group-append:focus {
+    outline: none !important;
+  }
+  .input-group-text:focus {
+    outline: none !important;
+  }
+  .input-group .input-group-focus .input-group-append .input-group-text {
+    border: none !important;
+  }
+  .req-f {
+    font-size: 12px;
+    font-weight: 200;
+  }
+  .close:focus {
+    outline: none !important;
+  }
+  .close {
+    font-size: 22px !important;
+  }
+  .form-check-radio .form-check-sign::before {
+    font-family: "FontAwesome";
+    content: "\f10c";
+    font-size: 22px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    position: absolute;
+    opacity: 0.5;
+    left: 5px;
+    top: 3px;
+  }
+  .form-check-radio input[type="radio"]:checked + .form-check-sign::after {
+    font-family: 'FontAwesome';
+    content: "\f192";
+    top: 3px;
+    position: absolute;
+    left: 5px;
+    opacity: 1;
+    font-size: 22px;
+  }
+  .in-par{
+    display: table;
+  }
+  .inline{
+    display: table-cell;
+    padding-top:10px;
+    vertical-align: middle;
+  }
+  .in-1{
+    padding-left: 20px;
+  }
+  .in-2{
+    padding-right: 20px;
+  }
