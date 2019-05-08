@@ -178,6 +178,8 @@ export class AddStudentComponent implements OnInit {
           console.log(error);
         });
       }
+    } else {
+      this.getClasses();
     }
   }
 }
