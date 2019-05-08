@@ -36,6 +36,7 @@
     "jwt-decode": "^2.2.0",
     "ng-in-viewport": "^6.0.3",
     "ng-simple-slideshow": "^1.2.5",
+    "ng4-loading-spinner": "^1.2.3",
     "ngx-alerts": "^3.4.1",
     "ngx-bar-rating": "^1.1.0",
     "ngx-owl-carousel": "^2.0.7",
