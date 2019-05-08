@@ -81,6 +81,18 @@ export class SearchAssistantComponent implements OnInit {
       this.alertService.warning('Please Select a Assistant');
     }
   }
+  editClasses() {
+    if (this.selected.length !== 0) {
+      this.auth.getAssistantProfile(this.selected[0]['assistant_id']).subscribe(success => {
+        this.auth.setAssistant(success['data']);
+        this.router.navigate(['viewClassesAssistant']);
+      }, error => {
+        console.log(error);
+      });
+    } else {
+      this.alertService.warning('Please Select a Assistant');
+    }
+  }
   search() {
     this.searchTxt.split(' ').join('');
     this.searchTxt.toLowerCase();

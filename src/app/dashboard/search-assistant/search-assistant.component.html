@@ -5,7 +5,7 @@
     <div class="row search-bar">
       <div class="col-md-8 ml-auto mr-auto">
         <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-          <input type="text" class="form-control" placeholder="Search Teacher" (focus)="focus=true" (blur)="focus=false"
+          <input type="text" class="form-control" placeholder="Search Assistant" (focus)="focus=true" (blur)="focus=false"
             [(ngModel)]='searchTxt' name='searchTxt'>
           <div class="input-group-append" (click)="search()">
             <span class="input-group-text" id="basic-addon1"><i class="fas fa-search" aria-hidden="true"></i></span>
@@ -31,8 +31,8 @@
         <div class="button-center">
           <button class="btn btn-default btn-round spec" (click)='viewProfile()'><i class="fas fa-user"></i> &nbsp; View
             Profile</button>
-          <!-- <button class="btn btn-default btn-round" (click)='editProfile()'><i class="fas fa-user-edit"></i> &nbsp; Edit
-            Profile</button> -->
+          <button class="btn btn-default btn-round spec" (click)='editClasses()'><i class="fas fa-user-edit"></i> &nbsp; Edit
+            Classes</button>
           <button class="btn btn-default btn-round spec" (click)='deleteProfile(content)'><i class="fas fa-trash"></i> &nbsp; Delete
             Profile</button>
         </div>
