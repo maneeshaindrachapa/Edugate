@@ -38,10 +38,10 @@
             <i class="fas fa-users"></i>
           </div>
           <div class="forgot" *ngIf='assistants && students'>
-            <a href="#" class="btn btn-link btn-forgot-password"><i class='fas fa-plus-circle'></i>Add</a>
+            <a (click)='addClass()' class="btn btn-link btn-forgot-password"><i class='fas fa-plus-circle'></i>Add</a>
           </div>
           <div class="forgot">
-            <a href="#" class="btn btn-link btn-forgot-password"><i class='fas fa-search'></i>Search</a>
+            <a (click)='searchClass()' class="btn btn-link btn-forgot-password"><i class='fas fa-search'></i>Search</a>
           </div>
         </div>
       </div>

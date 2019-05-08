@@ -18,6 +18,8 @@ import { AddAssistantComponent } from './dashboard/add-assistant/add-assistant.c
 import { SearchAssistantComponent } from './dashboard/search-assistant/search-assistant.component';
 import { ViewProfileAssistantComponent } from './dashboard/view-profile-assistant/view-profile-assistant.component';
 import { ViewClassesAssistantComponent } from './dashboard/view-classes-assistant/view-classes-assistant.component';
+import { AddClassComponent } from './dashboard/add-class/add-class.component';
+import { SearchClassComponent } from './dashboard/search-class/search-class.component';
 
 const routes: Routes = [{ path: '', component: HomepageComponent },
 { path: 'login', component: LoginComponent },
@@ -27,9 +29,11 @@ const routes: Routes = [{ path: '', component: HomepageComponent },
 { path: 'addStudent' , component : AddStudentComponent, canActivate: [AuthGuard]},
 { path: 'addTeacher' , component : AddTeacherComponent, canActivate: [AuthGuard]},
 { path: 'addAssistant' , component : AddAssistantComponent, canActivate: [AuthGuard]},
+{ path: 'addClass' , component : AddClassComponent, canActivate: [AuthGuard]},
 { path: 'searchTeacher' , component : SearchTeacherComponent, canActivate: [AuthGuard]},
 { path: 'searchStudent' , component : SearchStudentComponent, canActivate: [AuthGuard]},
 { path: 'searchAssistant' , component : SearchAssistantComponent, canActivate: [AuthGuard]},
+{ path: 'searchClass' , component : SearchClassComponent, canActivate: [AuthGuard]},
 { path: 'viewProfileStudent' , component : ViewProfileStudentComponent, canActivate: [AuthGuard]},
 { path: 'viewProfileTeacher' , component : ViewProfileTeacherComponent, canActivate: [AuthGuard]},
 { path: 'viewProfileAssistant' , component : ViewProfileAssistantComponent, canActivate: [AuthGuard]},

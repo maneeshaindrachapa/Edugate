@@ -42,4 +42,10 @@ export class DashboardCardsComponent implements OnInit {
   searchAssistant() {
     this.router.navigate(['searchAssistant']);
   }
+  addClass() {
+    this.router.navigate(['addClass']);
+  }
+  searchClass() {
+    this.router.navigate(['searchClass']);
+  }
 }
