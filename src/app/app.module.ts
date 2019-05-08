@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AlertModule } from 'ngx-alerts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +48,7 @@ import { ViewProfileTeacherComponent } from './dashboard/view-profile-teacher/vi
 import { AddAssistantComponent } from './dashboard/add-assistant/add-assistant.component';
 import { SearchAssistantComponent } from './dashboard/search-assistant/search-assistant.component';
 import { ViewProfileAssistantComponent } from './dashboard/view-profile-assistant/view-profile-assistant.component';
+import { ViewClassesAssistantComponent } from './dashboard/view-classes-assistant/view-classes-assistant.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -80,10 +82,12 @@ export function tokenGetter() {
     ViewProfileTeacherComponent,
     AddAssistantComponent,
     SearchAssistantComponent,
-    ViewProfileAssistantComponent
+    ViewProfileAssistantComponent,
+    ViewClassesAssistantComponent
   ],
   imports: [
     NgbModule,
+    Ng4LoadingSpinnerModule.forRoot(),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'left'}),
     InViewportModule,
     CountUpModule,
