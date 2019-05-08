@@ -13,6 +13,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { AlertModule } from 'ngx-alerts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,6 +50,8 @@ import { AddAssistantComponent } from './dashboard/add-assistant/add-assistant.c
 import { SearchAssistantComponent } from './dashboard/search-assistant/search-assistant.component';
 import { ViewProfileAssistantComponent } from './dashboard/view-profile-assistant/view-profile-assistant.component';
 import { ViewClassesAssistantComponent } from './dashboard/view-classes-assistant/view-classes-assistant.component';
+import { AddClassComponent } from './dashboard/add-class/add-class.component';
+import { SearchClassComponent } from './dashboard/search-class/search-class.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -83,9 +86,12 @@ export function tokenGetter() {
     AddAssistantComponent,
     SearchAssistantComponent,
     ViewProfileAssistantComponent,
-    ViewClassesAssistantComponent
+    ViewClassesAssistantComponent,
+    AddClassComponent,
+    SearchClassComponent
   ],
   imports: [
+    JwBootstrapSwitchNg2Module,
     NgbModule,
     Ng4LoadingSpinnerModule.forRoot(),
     AlertModule.forRoot({maxMessages: 5, timeout: 5000, position: 'left'}),
