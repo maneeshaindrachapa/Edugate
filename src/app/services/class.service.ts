@@ -53,4 +53,14 @@ export class ClassService {
   getClassesOfAssistant(ass_id) {
     return this.http.get('http://localhost:8080/assistants/get/classes/' + ass_id, { headers: this.headers }).pipe(map(res => res));
   }
+  /* Deassign Assistant */
+  deassignAssistant(ass_id, class_details) {
+    return this.http.post('http://localhost:8080/assistants/deassign/:' + ass_id,
+      { 'deassign_info': class_details }, { headers: this.headers }).pipe(map(res => res));
+  }
+  /* assign Assistant */
+  assignAssistant(ass_id, class_details) {
+    return this.http.post('http://localhost:8080/assistants/assign/:' + ass_id,
+      { 'class_info': class_details }, { headers: this.headers }).pipe(map(res => res));
+  }
 }
