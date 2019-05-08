@@ -1,0 +1,69 @@
+<app-dashboard-navbar></app-dashboard-navbar>
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/11.jpeg');">
+    <div class="filter"></div>
+  </div>
+  <div class="section profile-content">
+    <div class="container">
+      <ngx-alerts style="font-family: 'kiona' !important;"></ngx-alerts>
+      <ng4-loading-spinner> </ng4-loading-spinner>
+      <div class="owner">
+        <div class="avatar">
+          <img src="./assets/img/avatar/{{profile_pic}}" alt="Circle Image"
+            class="img-circle img-no-padding img-responsive">
+        </div>
+        <div class="name">
+          <h4 class="title">{{assistant['first_name']}}&nbsp; {{assistant['last_name']}}<br /></h4>
+        </div>
+      </div>
+      <label>Classes Assisting </label>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div class="table" style="padding: 20px;">
+          <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50"
+            [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [selected]="selected" [selectionType]="'single'"
+            (select)="selectClass($event)">
+          </ngx-datatable>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mr-auto ml-auto in-1">
+          <button class="btn btn-default btn-round" (click)='deassignClass()'>Deassign from a Class</button>
+        </div>
+      </div>
+      <label>Classes Available</label>
+      <div class="row">
+        <div class="col-md-12 ml-auto mr-auto in-par">
+          <div class="inline in-1">
+            <select class="form-control" [(ngModel)]="selectedValue">
+              <option value='bySub'>by Subject</option>
+              <option value='byTeacher'>by Teacher</option>
+              <option value='byBatch'>by Batch</option>
+            </select>
+          </div>
+          <div class="inline in-2">
+            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+              <input type="text" class="form-control" placeholder="Search" (focus)="focus=true" (blur)="focus=false"
+                [(ngModel)]='searchTxt' name='searchTxt'>
+              <div class="input-group-append" (click)="search()">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-search" aria-hidden="true"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div class="table" style="padding: 20px;">
+          <ngx-datatable class="material" [rows]="rows_" [columnMode]="'force'" [columns]="columns_" [headerHeight]="50"
+            [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [selected]="selected_" [selectionType]="'single'"
+            (select)="selectClassNotIn($event)">
+          </ngx-datatable>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mr-auto ml-auto in-1">
+          <button class="btn btn-default btn-round " (click)='assignAssistant()'>Assign Assistant to a Class</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
