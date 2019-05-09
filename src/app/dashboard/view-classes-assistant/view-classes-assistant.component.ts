@@ -96,7 +96,13 @@ export class ViewClassesAssistantComponent implements OnInit {
       if (this.selectedValue === 'bySub') {
         this.classSer.getClassesBySubject(this.searchTxt).subscribe(success => {
           for (let i = 0; i < success['data'].length; i++) {
-            this.classes.push(success['data'][i]);
+            for (let j = 0; j < this.allClassesWorking.length; j++) {
+              if (this.allClassesWorking[j]['class_id'] === success['data'][i]['_id']) {
+                break;
+              } else if (j === (this.allClassesWorking.length - 1)) {
+                this.classes.push(success['data'][i]);
+              }
+            }
           }
           this.rows_ = this.classes;
         }, error => {
@@ -105,7 +111,13 @@ export class ViewClassesAssistantComponent implements OnInit {
       } else if (this.selectedValue === 'byTeacher') {
         this.classSer.getClassesByTeacher(this.searchTxt).subscribe(success => {
           for (let i = 0; i < success['data'].length; i++) {
-            this.classes.push(success['data'][i]);
+            for (let j = 0; j < this.allClassesWorking.length; j++) {
+              if (this.allClassesWorking[j]['class_id'] === success['data'][i]['_id']) {
+                break;
+              } else if (j === (this.allClassesWorking.length - 1)) {
+                this.classes.push(success['data'][i]);
+              }
+            }
           }
           this.rows_ = this.classes;
         }, error => {
@@ -114,12 +126,20 @@ export class ViewClassesAssistantComponent implements OnInit {
       } else if (this.selectedValue === 'byBatch') {
         this.classSer.getClassesByBatch(this.searchTxt).subscribe(success => {
           for (let i = 0; i < success['data'].length; i++) {
-            this.classes.push(success['data'][i]);
+            for (let j = 0; j < this.allClassesWorking.length; j++) {
+              if (this.allClassesWorking[j]['class_id'] === success['data'][i]['_id']) {
+                break;
+              } else if (j === (this.allClassesWorking.length - 1)) {
+                this.classes.push(success['data'][i]);
+              }
+            }
           }
           this.rows_ = this.classes;
         }, error => {
           console.log(error);
         });
+      } else {
+        this.getClassesNotIn();
       }
     } else {
       this.getClassesNotIn();

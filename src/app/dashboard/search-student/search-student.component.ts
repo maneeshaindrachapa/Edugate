@@ -99,4 +99,16 @@ export class SearchStudentComponent implements OnInit {
       this.alertService.warning('Please Select a Student');
     }
   }
+  editClasses() {
+    if (this.selected.length !== 0) {
+      this.auth.getStudentProfile(this.selected[0]['student_id']).subscribe(success => {
+        localStorage.setItem('student', JSON.stringify(success['data']));
+        this.router.navigate(['editStudentClass']);
+      }, error => {
+        console.log(error);
+      });
+    } else {
+      this.alertService.warning('Please Select a Student');
+    }
+  }
 }
