@@ -13,7 +13,6 @@ export class ClassService {
   });
 
   constructor(private http: HttpClient) { }
-
   /* get classes */
   getClasses() {
     return this.http.get('http://localhost:8080/classes/', { headers: this.headers }).pipe(map(res => res));
@@ -35,6 +34,11 @@ export class ClassService {
     return this.http.post('http://localhost:8080/classes/get/by-day', { 'search_word': search_word }, { headers: this.headers }).pipe(map(res => res));
   }
   addClass(subject_id, batch_id, group_id, teacher_id, starting_date, starting_time, ending_time, fees, daily_fees) {
+    if (daily_fees === 'yes') {
+      daily_fees = true;
+    } else {
+      daily_fees = false;
+    }
     return this.http.post('http://localhost:8080/classes/add',
       {
         'subject_id': subject_id,
@@ -102,5 +106,9 @@ export class ClassService {
   enableMarking(class_id, class_) {
     return this.http.post('http://localhost:8080/classes/enable/:' + class_id,
       { 'class': class_ }, { headers: this.headers }).pipe(map(res => res));
+  }
+  /* delete class */
+  deleteClass(class_id) {
+    return this.http.delete('http://localhost:8080/classes/delete/' + class_id, { headers: this.headers }).pipe(map(res => res));
   }
 }

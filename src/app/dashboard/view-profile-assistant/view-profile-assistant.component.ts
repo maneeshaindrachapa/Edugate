@@ -30,7 +30,7 @@ export class ViewProfileAssistantComponent implements OnInit {
   constructor(private auth: AuthService, private alertService: AlertService, private modalService: NgbModal, private classSer: ClassService) { }
 
   ngOnInit() {
-    this.assistantDetails = this.auth.getAssistant();
+    this.assistantDetails = JSON.parse(localStorage.getItem('assistant'));
     this.getClasses();
   }
   selectClass({ selected }) {

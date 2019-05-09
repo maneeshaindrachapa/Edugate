@@ -7,9 +7,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class AuthService {
-  student: any;
-  teacher: any;
-  assistant: any;
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -18,25 +15,6 @@ export class AuthService {
 
   private jwtHelper = new JwtHelperService();
   constructor(private http: HttpClient) {
-  }
-  // getters and  setters
-  getStudent() {
-    return this.student;
-  }
-  setStudent(s) {
-    this.student = s;
-  }
-  getTeacher() {
-    return this.teacher;
-  }
-  setTeacher(s) {
-    this.teacher = s;
-  }
-  getAssistant() {
-    return this.assistant;
-  }
-  setAssistant(s) {
-    this.assistant = s;
   }
 
   // login and register;

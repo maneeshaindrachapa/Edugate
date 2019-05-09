@@ -90,7 +90,7 @@ export class SearchStudentComponent implements OnInit {
   viewProfile() {
     if (this.selected.length !== 0) {
       this.auth.getStudentProfile(this.selected[0]['student_id']).subscribe(success => {
-        this.auth.setStudent(success['data']);
+        localStorage.setItem('student', JSON.stringify(success['data']));
         this.router.navigate(['viewProfileStudent']);
       }, error => {
         console.log(error);

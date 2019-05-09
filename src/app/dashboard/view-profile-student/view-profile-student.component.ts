@@ -30,7 +30,7 @@ export class ViewProfileStudentComponent implements OnInit {
   constructor(private auth: AuthService, private modalService: NgbModal, private classSer: ClassService) { }
 
   ngOnInit() {
-    this.studentDetails = this.auth.getStudent();
+    this.studentDetails = JSON.parse(localStorage.getItem('student'));
     console.log(this.studentDetails);
   }
   selectClass({ selected }) {

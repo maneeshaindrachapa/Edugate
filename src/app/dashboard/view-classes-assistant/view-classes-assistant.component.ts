@@ -44,7 +44,7 @@ export class ViewClassesAssistantComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.assistant = this.auth.getAssistant();
+    this.assistant = JSON.parse(localStorage.getItem('assistant'));
     this.getClasses();
   }
   selectClass({ selected }) {
