@@ -35,53 +35,40 @@
             <h3 class="title">Group:{{class.group_id}}</h3>
             <h3 class="title">Day of Week:{{class.day_of_week}}</h3>
             <h3 class="title">Starting Time:{{class.starting_time}}</h3>
-            <div class="social-line text-center">
-              <i class="fas fa-users"></i>
-            </div>
+
             <div class="forgot">
-              <a (click)='searchClass()' class="btn btn-link btn-forgot-password"><i
-                  class='fas fa-search'></i>Search</a>
+              <div class="row icons">
+                <div class="col-md-8 ml-auto mr-auto">
+                  <div class="button-center">
+                    <button class="btn btn-default btn-round spec" (click)='assignStudents()' placement="bottom" ngbTooltip="Assign Students"><i class="fas fa-user"></i></button>
+                    <button class="btn btn-default btn-round spec" (click)='editClasses(classes[i])' placement="bottom" ngbTooltip="Edit Class Details"><i class="fas fa-user-edit"></i>
+                      </button>
+                    <button class="btn btn-default btn-round spec" (click)='deleteClass(content,classes[i])' placement="bottom" ngbTooltip="Delete Class"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </li>
       </ul>
     </div>
-
-    <div class="row icons">
-      <div class="col-md-8 ml-auto mr-auto">
-        <div class="button-center">
-          <button class="btn btn-default btn-round spec" (click)='viewProfile()'><i class="fas fa-user"></i> &nbsp;
-            View
-            Profile</button>
-          <button class="btn btn-default btn-round spec" (click)='editClasses()'><i class="fas fa-user-edit"></i>
-            &nbsp;
-            Edit
-            Classes</button>
-          <button class="btn btn-default btn-round spec" (click)='deleteProfile(content)'><i class="fas fa-trash"></i>
-            &nbsp; Delete
-            Profile</button>
-        </div>
-      </div>
-    </div>
     <!--model-->
     <ng-template #content let-c="close" let-d="dismiss">
       <div class="modal-header">
-        <h5 class="modal-title text-center">Delete Assistant</h5>
+        <h5 class="modal-title text-center">Delete Class</h5>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="row">
         <div class="col-md-10 ml-auto mr-auto">
-          <h4>Do you want to delete this Assistant ?</h4>
-          <p><strong>{{assistant_['assistant_id']}} : {{assistant_['first_name']}}
-              {{assistant_['last_name']}}</strong>
-          </p><br>
+          <h4>Do you want to delete this Class ?</h4>
+          <p><strong> {{deleteClass_['batch_id']}} /{{deleteClass_['group_id']}} /{{deleteClass_['subject_id']}} </strong></p><br>
         </div>
       </div>
       <div class="modal-footer">
         <div class="left-side">
-          <button type="button" class="btn btn-danger btn-link" (click)="deleteAssistant()">Delete Student</button>
+          <button type="button" class="btn btn-danger btn-link" (click)="deleteClassF()">Delete Class</button>
         </div>
         <div class="divider"></div>
         <div class="right-side">

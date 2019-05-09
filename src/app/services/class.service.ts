@@ -53,7 +53,26 @@ export class ClassService {
       },
       { headers: this.headers }).pipe(map(res => res));
   }
-
+  editClass(class_id, subject_id, batch_id, group_id, teacher_id, starting_date, starting_time, ending_time, fees, daily_fees) {
+    if (daily_fees === 'yes') {
+      daily_fees = true;
+    } else {
+      daily_fees = false;
+    }
+    return this.http.post('http://localhost:8080/classes/update/' + class_id,
+      {
+        'subject_id': subject_id,
+        'batch_id': batch_id,
+        'group_id': group_id,
+        'teacher_id': teacher_id,
+        'starting_date': starting_date,
+        'ending_time': ending_time,
+        'starting_time': starting_time,
+        'fees': fees,
+        'daily_fees': daily_fees
+      },
+      { headers: this.headers }).pipe(map(res => res));
+  }
   /* get batch */
   getBatches() {
     return this.http.get('http://localhost:8080/classes/batches', { headers: this.headers }).pipe(map(res => res));
