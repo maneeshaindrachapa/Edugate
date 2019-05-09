@@ -1,0 +1,248 @@
+<app-dashboard-navbar></app-dashboard-navbar>
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/4.jpg');">
+    <div class="filter"></div>
+  </div>
+  <div class="section profile-content">
+    <div class="container">
+        <ng-template #contentBatch let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h5 class="modal-title text-center">Add Batch</h5>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="row">
+              <div class="col-md-10 ml-auto mr-auto">
+                  <select class="form-control" [(ngModel)]="batchDetails.name">
+                      <option value="" selected>--Select Batch--</option>
+                      <option value="AL">AL</option>
+                      <option value="OL">OL</option>
+                      <option value="Grade 1">Grade 1</option>
+                      <option value="Grade 2">Grade 2</option>
+                      <option value="Grade 3">Grade 3</option>
+                      <option value="Grade 4">Grade 4</option>
+                      <option value="Grade 5">Grade 5</option>
+                      <option value="Grade 6">Grade 6</option>
+                      <option value="Grade 7">Grade 7</option>
+                      <option value="Grade 8">Grade 8</option>
+                      <option value="Grade 9">Grade 9</option>
+                  </select>
+                  <input type="number" pattern="[0-9]{4}" min={{minYear}} max='9999' class="form-control model-inputs" placeholder="Year" (focus)="focus=true"
+                  (blur)="focus=false"  [(ngModel)]="batchDetails.year" name='year'>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="left-side">
+                <button type="button" class="btn btn-default btn-link" (click)="addNewBatch()">Add Batch</button>
+              </div>
+              <div class="divider"></div>
+              <div class="right-side">
+                <button type="button" class="btn btn-danger btn-link" (click)="d('Close click')">Never Mind</button>
+              </div>
+            </div>
+        </ng-template>
+        <ng-template #contentSubject let-c="close" let-d="dismiss">
+              <div class="modal-header">
+                <h5 class="modal-title text-center">Add Subject</h5>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="row">
+                <div class="col-md-10 ml-auto mr-auto">
+                    <select class="form-control" [(ngModel)]="subjectDetails.stream">
+                        <option value="" selected>--Select Stream--</option>
+                        <option value="PRIMARY">Primary</option>
+                        <option value="OL">OL</option>
+                        <option value="SCIENCE">Science</option>
+                        <option value="MATHS">Maths</option>
+                        <option value="TECHNOLOGY">Technology</option>
+                        <option value="COMMERCE">Commerce</option>
+                        <option value="ARTS">Arts</option>
+                    </select>
+                    <input type="text" class="form-control model-inputs" placeholder="Subject Name" (focus)="focus=true"
+                    (blur)="focus=false" [(ngModel)]="subjectDetails.subject" name='subject'>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="left-side">
+                  <button type="button" class="btn btn-default btn-link" (click)="addNewSubject()">Add Subject</button>
+                </div>
+                <div class="divider"></div>
+                <div class="right-side">
+                  <button type="button" class="btn btn-danger btn-link" (click)="d('Close click')">Never Mind</button>
+                </div>
+              </div>
+        </ng-template>
+        <ng-template #contentGroup let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h5 class="modal-title text-center">Add Group</h5>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="row">
+              <div class="col-md-10 ml-auto mr-auto">
+                  <select class="form-control" [(ngModel)]="groupDetails.category">
+                      <option value="" selected>--Select Category--</option>
+                      <option value="AL">AL</option>
+                      <option value="OL">OL</option>
+                      <option value="Grade 1">Grade 1</option>
+                      <option value="Grade 2">Grade 2</option>
+                      <option value="Grade 3">Grade 3</option>
+                      <option value="Grade 4">Grade 4</option>
+                      <option value="Grade 5">Grade 5</option>
+                      <option value="Grade 6">Grade 6</option>
+                      <option value="Grade 7">Grade 7</option>
+                      <option value="Grade 8">Grade 8</option>
+                      <option value="Grade 9">Grade 9</option>
+                  </select>
+                  <input type="text" class="form-control model-inputs" placeholder="Group Name" (focus)="focus=true"
+                  (blur)="focus=false"  [(ngModel)]="groupDetails.name" name='name'>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="left-side">
+                <button type="button" class="btn btn-default btn-link" (click)="addNewGroup()">Add Group</button>
+              </div>
+              <div class="divider"></div>
+              <div class="right-side">
+                <button type="button" class="btn btn-danger btn-link" (click)="d('Close click')">Never Mind</button>
+              </div>
+            </div>
+        </ng-template>
+      <ngx-alerts style="font-family: 'kiona' !important;"></ngx-alerts>
+      <div class="owner">
+        <div class="avatar">
+          <img src="./assets/img/avatar/{{profile_pic}}" alt="Circle Image"
+            class="img-circle img-no-padding img-responsive">
+        </div>
+        <div class="name">
+          <h4 class="title">Edit Class<br /></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>Batch</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-sound-wave"></i>
+              </span>
+            </div>
+            <select class="form-control" [(ngModel)]="selectedBatch" placeholder="Select Batch">
+              <option *ngFor='let batch of batches' value={{batch._id}}>{{batch.year}}&nbsp;{{batch.category}}</option>
+            </select>
+            <div class="input-group-append" (click)='open(contentBatch)'>
+              <span class="input-group-text" id="basic-addon1"><i class="fas fa-plus-circle"
+                  aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <label>Teacher</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-sound-wave"></i>
+              </span>
+            </div>
+            <select class="form-control" [(ngModel)]="selectedTeacher" placeholder="Select Teacher">
+              <option *ngFor='let teacher of teachers' value={{teacher.teacher_id}}>
+                {{teacher.first_name}}&nbsp;{{teacher.last_name}}</option>
+            </select>
+          </div>
+          <label>Group</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-sound-wave"></i>
+              </span>
+            </div>
+            <select class="form-control" [(ngModel)]="selectedGroup" placeholder="Select Group">
+              <option *ngFor='let group of groups' value={{group._id}}>{{group.group}}</option>
+            </select>
+            <div class="input-group-append" (click)='open(contentGroup)'>
+              <span class="input-group-text" id="basic-addon1"><i class="fas fa-plus-circle"
+                  aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <label>Starting Time</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-paper"></i>
+              </span>
+            </div>
+            <input input type="time" class="form-control"  placeholder="Starting Time"
+              [(ngModel)]='startingTime' (focus)="focus=true" (blur)="focus=false" name='startingTime'>
+          </div>
+          <label>Ending Time</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-paper"></i>
+              </span>
+            </div>
+            <input type="time" class="form-control" placeholder="Ending Time" (focus)="focus=true" (blur)="focus=false"
+              [(ngModel)]='endingTime' name='endingTime'>
+          </div>
+        </div>
+        <div class="col-md-6 mr-auto ml-auto">
+          <label>Starting Date</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-map-big"></i>
+              </span>
+            </div>
+            <input type="date" class="form-control" placeholder="Starting Date" (focus)="focus=true" (blur)="focus=false"
+              [(ngModel)]='startingDate' name='startingDate'>
+          </div>
+          <label>Subject</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-sound-wave"></i>
+              </span>
+            </div>
+            <select class="form-control" [(ngModel)]="selectedSubject" placeholder="Select Subject">
+              <option *ngFor='let subject of subjects' value={{subject._id}}>{{subject.stream}}&nbsp;{{subject.subject}}
+              </option>
+            </select>
+            <div class="input-group-append" (click)='open(contentSubject)'>
+              <span class="input-group-text" id="basic-addon1"><i class="fas fa-plus-circle"
+                  aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <label>Fees</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-credit-card"></i>
+              </span>
+            </div>
+            <input type="number" min='1' class="form-control" placeholder="Fees" (focus)="focus=true"
+              (blur)="focus=false" [(ngModel)]='fees' name='fees' step='100'>
+          </div>
+          <label>Daily Fees</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-credit-card"></i>
+              </span>
+            </div>
+            <select class="form-control" [(ngModel)]="selectDailyFee" placeholder="Select Daily Fees/Not">
+              <option value='yes' selected>Yes</option>
+              <option value='no'>No</option>
+            </select>
+          </div>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-md-12 mr-auto ml-auto">
+          <button class="btn btn-default btn-round" (click)='editClass_()'>Edit Class</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
