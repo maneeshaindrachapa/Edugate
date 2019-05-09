@@ -52,6 +52,7 @@ import { ViewProfileAssistantComponent } from './dashboard/view-profile-assistan
 import { ViewClassesAssistantComponent } from './dashboard/view-classes-assistant/view-classes-assistant.component';
 import { AddClassComponent } from './dashboard/add-class/add-class.component';
 import { SearchClassComponent } from './dashboard/search-class/search-class.component';
+import { EditClassComponent } from './dashboard/edit-class/edit-class.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -88,7 +89,8 @@ export function tokenGetter() {
     ViewProfileAssistantComponent,
     ViewClassesAssistantComponent,
     AddClassComponent,
-    SearchClassComponent
+    SearchClassComponent,
+    EditClassComponent
   ],
   imports: [
     JwBootstrapSwitchNg2Module,
