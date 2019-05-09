@@ -120,6 +120,16 @@ export class ClassService {
     return this.http.post('http://localhost:8080/assistants/assign/:' + ass_id,
       { 'class_info': class_details }, { headers: this.headers }).pipe(map(res => res));
   }
+  /* Deassign student */
+  deassignStudent(std_id, class_details) {
+    return this.http.post('http://localhost:8080/students/deassign/:' + std_id,
+      { 'deassign_info': class_details }, { headers: this.headers }).pipe(map(res => res));
+  }
+  /* assign student */
+  assignStudent(std_id, class_details) {
+    return this.http.post('http://localhost:8080/students/assign/:' + std_id,
+      { 'class_info': class_details }, { headers: this.headers }).pipe(map(res => res));
+  }
 
   /* marking*/
   enableMarking(class_id, class_) {
