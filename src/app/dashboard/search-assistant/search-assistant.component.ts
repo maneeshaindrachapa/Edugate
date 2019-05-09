@@ -72,7 +72,7 @@ export class SearchAssistantComponent implements OnInit {
   viewProfile() {
     if (this.selected.length !== 0) {
       this.auth.getAssistantProfile(this.selected[0]['assistant_id']).subscribe(success => {
-        this.auth.setAssistant(success['data']);
+        localStorage.setItem('assistant', JSON.stringify(success['data']));
         this.router.navigate(['viewProfileAssistant']);
       }, error => {
         console.log(error);
@@ -84,7 +84,7 @@ export class SearchAssistantComponent implements OnInit {
   editClasses() {
     if (this.selected.length !== 0) {
       this.auth.getAssistantProfile(this.selected[0]['assistant_id']).subscribe(success => {
-        this.auth.setAssistant(success['data']);
+        localStorage.setItem('assistant', JSON.stringify(success['data']));
         this.router.navigate(['viewClassesAssistant']);
       }, error => {
         console.log(error);
