@@ -12,17 +12,17 @@ option,
 select {
   font-family: "kiona" !important;
 }
-h3{
+h3 {
   font-size: 12px;
 }
-.title{
+.title {
   color: #ffffff;
-  margin-top:0px;
+  margin-top: 0px;
   margin-bottom: 0px;
   text-align: left !important;
 }
-.card-register{
-  background-color:  #242c42 !important;
+.card-register {
+  background-color: #242c42 !important;
 }
 
 .search-bar {
@@ -141,31 +141,41 @@ input:focus {
   margin-bottom: 10px !important;
   min-height: 280px;
 }
-.result-classes{
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.result-classes {
   list-style: none;
   display: flex;
   flex-flow: row wrap;
-  padding-left:0px !important;
+  padding-left: 0px !important;
 }
 .result-classes-li {
   flex: 0 1 30%;
   margin-left: 5px;
   margin-right: 5px;
 }
-.bootstrap-switch .bootstrap-switch-handle-on, .bootstrap-switch .bootstrap-switch-handle-off{
+.bootstrap-switch .bootstrap-switch-handle-on,
+.bootstrap-switch .bootstrap-switch-handle-off {
   font-size: 10px !important;
 }
-ul{
-    list-style: none;
-    padding-left: 0px;
+.icon_ {
+  float: right;
+  color: #000;
 }
-li:hover{
-    background-color:#ccc;
+.icon_circle {
+  color: #000 !important;
 }
-.icon_{
-    float: right;
-    color:#000;
+.dates {
+  font-size: 12px;
 }
-.icon_circle{
-    color:#000 !important;
+.cc {
+  float: right;
+  margin-top: 5px;
+}
+.ccc{
+  padding: 10px;
+  border-radius: 5px;
 }

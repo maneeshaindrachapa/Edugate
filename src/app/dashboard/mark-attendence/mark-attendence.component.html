@@ -1,7 +1,36 @@
 <app-dashboard-navbar></app-dashboard-navbar>
 <div class="wrapper">
   <div class="container">
+    <ng4-loading-spinner> </ng4-loading-spinner>
     <ngx-alerts style="font-family: 'kiona' !important;"></ngx-alerts>
+
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h5 class="modal-title text-center">Top Up: {{student_id}}</h5>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="row">
+          <div class="col-md-10 ml-auto mr-auto">
+            <h4>Do you want to Top Up for {{payFor}} ?</h4><br>
+            <p><strong>Amount: </strong>{{fees}}</p><span><select class="form-control" [(ngModel)]="fullHalf" (ngModelChange)='changeAmount()'>
+              <option value="full" selected>Full</option>
+              <option value="half">Half</option>
+            </select></span><br>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="left-side">
+            <button type="button" class="btn btn-success btn-link" (click)="topUp()">Top Up</button>
+          </div>
+          <div class="divider"></div>
+          <div class="right-side">
+            <button type="button" class="btn btn-default btn-link" (click)="d('Close click')">Never Mind</button>
+          </div>
+        </div>
+      </ng-template>
+
     <div class="row search-bar">
       <div class="col-md-10 ml-auto mr-auto">
         <input [formControl]="queryField" class='form-control' type="text" id="keyword" placeholder="Student ID/Name"
@@ -14,37 +43,53 @@
             </p>
           </li>
         </ul>
-        <p><strong></strong></p><br>
       </div>
     </div>
     <div class="mr-auto ml-auto">
-      <!-- <ul>
-        <li *ngFor='let class of classes;let i = index'>
+      <ul class="result-classes">
+        <li class='result-classes-li' *ngFor='let class of classAttendence;let i = index'>
           <div class="card card-register class-inline">
-            <bSwitch style="margin-left: 75%;" [switch-on-color]="'primary'" [(ngModel)]="classes[i]['enabled']"
-              (changeState)="onChange(classes[i],$event)">
-            </bSwitch>
-            <h3 class="title">Subject:{{class.subject_id}}</h3>
-            <h3 class="title">Batch:{{class.batch_id}}</h3>
-            <h3 class="title">Group:{{class.group_id}}</h3>
-            <h3 class="title">Day of Week:{{class.day_of_week}}</h3>
-            <h3 class="title">Starting Time:{{class.starting_time}}</h3>
-
-            <div class="forgot">
+            <h3 class="title">Class: {{class.class_info._id}}</h3>
+            <h3 class="title">Subject: {{class.class_info.subject_id}}</h3>
+            <h3 class="title">Fees: {{class.class_info.fees}}</h3>
+            <h3 class="title">Teacher: {{class.class_info.teacher_id}}</h3>
+            <h3 class="title">Group: {{class.class_info.group_id}}</h3>
+            <h3 class="title">Batch: {{class.class_info.batch_id}}</h3>
+            <div class='ccc' [ngStyle]="{'background-color':thisMonth[i]}">
+              <h3 class="title">This Month Dates</h3>
+              <p class='dates' *ngFor='let tf of class.current_class_dates;let j = index'>{{tf.substr(0, 10)}}<i
+                  class="fas fa-check-circle cc" *ngIf=tfArray[i][j]></i><i class="fas fa-times-circle cc"
+                  *ngIf=!tfArray[i][j]></i></p>
               <div class="row icons">
-                <div class="col-md-8 ml-auto mr-auto">
+                <div class="col-md-12 ml-auto mr-auto">
                   <div class="button-center">
-                    <button class="btn btn-default btn-round spec" (click)='assignStudents(classes[i])' placement="bottom" ngbTooltip="Assign Students"><i class="fas fa-user"></i></button>
-                    <button class="btn btn-default btn-round spec" (click)='editClasses(classes[i])' placement="bottom" ngbTooltip="Edit Class Details"><i class="fas fa-user-edit"></i>
-                      </button>
-                    <button class="btn btn-default btn-round spec" (click)='deleteClass(content,classes[i])' placement="bottom" ngbTooltip="Delete Class"><i class="fas fa-trash"></i></button>
+                    <button class="btn btn-default btn-round spec" *ngIf=!class.current_paid (click)='open1(content,class.class_info._id,class.class_info.fees)'>Top
+                      Up</button>
+                    <button class="btn btn-default btn-round spec" placement="bottom" ngbTooltip="Mark Attendence"
+                      (click)='markAttendenceStd(class.class_info._id,class.class_info.day_of_week)'><i class="fas fa-user-edit"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class='ccc' [ngStyle]="{'background-color':lastMonth[i]}">
+              <h3 class="title">Last Month</h3>
+              <p class='dates' *ngFor='let tf_ of class.prev_class_dates;let k = index'>{{tf_.substr(0, 10)}}<i
+                  class="fas fa-check-circle cc" *ngIf=tfArray_[i][k]></i><i class="fas fa-times-circle cc"
+                  *ngIf=!tfArray_[i][k]></i></p>
+              <div class="row icons">
+                <div class="col-md-12 ml-auto mr-auto">
+                  <div class="button-center">
+                    <button class="btn btn-default btn-round spec" *ngIf=!class.prev_paid (click)='open2(content,class.class_info._id,class.class_info.fees)'>Top
+                      Up</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </li>
-      </ul> -->
+      </ul>
     </div>
   </div>
 </div>
