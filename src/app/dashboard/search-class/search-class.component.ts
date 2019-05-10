@@ -112,4 +112,8 @@ export class SearchClassComponent implements OnInit {
     localStorage.setItem('class', JSON.stringify(class_));
     this.router.navigate(['editClass']);
   }
+  assignStudents(class_) {
+    localStorage.setItem('class', JSON.stringify(class_));
+    this.router.navigate(['assignStudentClass']);
+  }
 }

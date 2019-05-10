@@ -40,7 +40,7 @@
               <div class="row icons">
                 <div class="col-md-8 ml-auto mr-auto">
                   <div class="button-center">
-                    <button class="btn btn-default btn-round spec" (click)='assignStudents()' placement="bottom" ngbTooltip="Assign Students"><i class="fas fa-user"></i></button>
+                    <button class="btn btn-default btn-round spec" (click)='assignStudents(classes[i])' placement="bottom" ngbTooltip="Assign Students"><i class="fas fa-user"></i></button>
                     <button class="btn btn-default btn-round spec" (click)='editClasses(classes[i])' placement="bottom" ngbTooltip="Edit Class Details"><i class="fas fa-user-edit"></i>
                       </button>
                     <button class="btn btn-default btn-round spec" (click)='deleteClass(content,classes[i])' placement="bottom" ngbTooltip="Delete Class"><i class="fas fa-trash"></i></button>
