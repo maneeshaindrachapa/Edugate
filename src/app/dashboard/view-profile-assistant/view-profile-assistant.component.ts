@@ -27,7 +27,7 @@ export class ViewProfileAssistantComponent implements OnInit {
   selected = [];
   /*************/
   // tslint:disable-next-line:max-line-length
-  constructor(private auth: AuthService, private alertService: AlertService, private modalService: NgbModal, private classSer: ClassService) { }
+  constructor(private auth: AuthService, private alertService: AlertService, private classSer: ClassService) { }
 
   ngOnInit() {
     this.assistantDetails = JSON.parse(localStorage.getItem('assistant'));

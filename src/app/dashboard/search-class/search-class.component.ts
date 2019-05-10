@@ -18,7 +18,6 @@ export class SearchClassComponent implements OnInit {
 
   constructor(private classSer: ClassService,
     private modalService: NgbModal,
-    private auth: AuthService,
     private alertService: AlertService,
     private router: Router) { }
 

@@ -27,7 +27,7 @@ export class ViewProfileTeacherComponent implements OnInit {
   selected = [];
   /*************/
   // tslint:disable-next-line:max-line-length
-  constructor(private auth: AuthService, private alertService: AlertService, private modalService: NgbModal, private classSer: ClassService) { }
+  constructor(private auth: AuthService, private alertService: AlertService, private classSer: ClassService) { }
 
   ngOnInit() {
     this.teacherDetails = JSON.parse(localStorage.getItem('teacher'));
