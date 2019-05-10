@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard-cards',
   templateUrl: './dashboard-cards.component.html',
-  styleUrls: ['./dashboard-cards.component.css']
+  styleUrls: ['./dashboard-cards.component.scss']
 })
 export class DashboardCardsComponent implements OnInit {
   role = '';
@@ -47,5 +47,8 @@ export class DashboardCardsComponent implements OnInit {
   }
   searchClass() {
     this.router.navigate(['searchClass']);
+  }
+  markAttendence_() {
+    this.router.navigate(['markAttendence']);
   }
 }

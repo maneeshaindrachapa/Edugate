@@ -13,7 +13,8 @@
             <a class="btn btn-link btn-forgot-password" (click)='addStudent()'><i class='fas fa-plus-circle'></i>Add</a>
           </div>
           <div class="forgot">
-            <a class="btn btn-link btn-forgot-password" (click)='searchStudent()'><i class='fas fa-search'></i>Search</a>
+            <a class="btn btn-link btn-forgot-password" (click)='searchStudent()'><i
+                class='fas fa-search'></i>Search</a>
           </div>
         </div>
       </div>
@@ -27,7 +28,8 @@
             <a (click)='addTeacher()' class="btn btn-link btn-forgot-password"><i class='fas fa-plus-circle'></i>Add</a>
           </div>
           <div class="forgot">
-            <a (click)='searchTeacher()' class="btn btn-link btn-forgot-password"><i class='fas fa-search'></i>Search</a>
+            <a (click)='searchTeacher()' class="btn btn-link btn-forgot-password"><i
+                class='fas fa-search'></i>Search</a>
           </div>
         </div>
       </div>
@@ -53,11 +55,13 @@
           <div class="social-line text-center">
             <i class="fas fa-headset"></i>
           </div>
-          <div class="forgot"  *ngIf='teachers && assistants && students'>
-            <a (click)='addAssistant()' class="btn btn-link btn-forgot-password"><i class='fas fa-plus-circle'></i>Add</a>
+          <div class="forgot" *ngIf='teachers && assistants && students'>
+            <a (click)='addAssistant()' class="btn btn-link btn-forgot-password"><i
+                class='fas fa-plus-circle'></i>Add</a>
           </div>
           <div class="forgot">
-            <a (click)='searchAssistant()' class="btn btn-link btn-forgot-password"><i class='fas fa-search'></i>Search</a>
+            <a (click)='searchAssistant()' class="btn btn-link btn-forgot-password"><i
+                class='fas fa-search'></i>Search</a>
           </div>
         </div>
       </div>
@@ -67,8 +71,9 @@
           <div class="social-line text-center">
             <i class="fas fa-clipboard-list"></i>
           </div>
-          <div class="forgot"  *ngIf='teachers && students'>
-            <a href="#" class="btn btn-link btn-forgot-password"><i class='fas fa-check-circle'></i>Mark</a>
+          <div class="forgot" *ngIf='teachers && students'>
+            <a (click)='markAttendence_()' class="btn btn-link btn-forgot-password"><i
+                class='fas fa-check-circle'></i>Mark</a>
           </div>
           <div class="forgot" *ngIf='assistants'>
             <a href="#" class="btn btn-link btn-forgot-password"><i class='fas fa-eye'></i>View</a>
