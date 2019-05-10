@@ -56,6 +56,7 @@ import { EditClassComponent } from './dashboard/edit-class/edit-class.component'
 import { EditStudentClassesComponent } from './dashboard/edit-student-classes/edit-student-classes.component';
 import { AssignStudentClassesComponent } from './dashboard/assign-student-classes/assign-student-classes.component';
 import { MarkAttendenceComponent } from './dashboard/mark-attendence/mark-attendence.component';
+import { AttendenceService } from './services/attendence.service';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -122,7 +123,7 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [AuthService, AuthGuardService, ClassService],
+  providers: [AuthService, AuthGuardService, ClassService, AttendenceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
