@@ -1,0 +1,50 @@
+<app-dashboard-navbar></app-dashboard-navbar>
+<div class="wrapper">
+  <div class="container">
+    <ngx-alerts style="font-family: 'kiona' !important;"></ngx-alerts>
+    <div class="row search-bar">
+      <div class="col-md-10 ml-auto mr-auto">
+        <input [formControl]="queryField" class='form-control' type="text" id="keyword" placeholder="Student ID/Name"
+          autofocus />
+        <ul class="filter-select">
+          <li *ngFor="let result of results" class="filter-select-list" (click)='markAttendence(result)'>
+            <p class="studentName">
+              {{result['student_id']}}:&nbsp;{{result['first_name']}}&nbsp;{{result['last_name']}}<span class='icon_'><i
+                  class="fas fa-check-circle icon_circle"></i></span>
+            </p>
+          </li>
+        </ul>
+        <p><strong></strong></p><br>
+      </div>
+    </div>
+    <div class="mr-auto ml-auto">
+      <!-- <ul>
+        <li *ngFor='let class of classes;let i = index'>
+          <div class="card card-register class-inline">
+            <bSwitch style="margin-left: 75%;" [switch-on-color]="'primary'" [(ngModel)]="classes[i]['enabled']"
+              (changeState)="onChange(classes[i],$event)">
+            </bSwitch>
+            <h3 class="title">Subject:{{class.subject_id}}</h3>
+            <h3 class="title">Batch:{{class.batch_id}}</h3>
+            <h3 class="title">Group:{{class.group_id}}</h3>
+            <h3 class="title">Day of Week:{{class.day_of_week}}</h3>
+            <h3 class="title">Starting Time:{{class.starting_time}}</h3>
+
+            <div class="forgot">
+              <div class="row icons">
+                <div class="col-md-8 ml-auto mr-auto">
+                  <div class="button-center">
+                    <button class="btn btn-default btn-round spec" (click)='assignStudents(classes[i])' placement="bottom" ngbTooltip="Assign Students"><i class="fas fa-user"></i></button>
+                    <button class="btn btn-default btn-round spec" (click)='editClasses(classes[i])' placement="bottom" ngbTooltip="Edit Class Details"><i class="fas fa-user-edit"></i>
+                      </button>
+                    <button class="btn btn-default btn-round spec" (click)='deleteClass(content,classes[i])' placement="bottom" ngbTooltip="Delete Class"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul> -->
+    </div>
+  </div>
+</div>
