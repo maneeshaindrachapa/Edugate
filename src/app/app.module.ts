@@ -54,6 +54,8 @@ import { AddClassComponent } from './dashboard/add-class/add-class.component';
 import { SearchClassComponent } from './dashboard/search-class/search-class.component';
 import { EditClassComponent } from './dashboard/edit-class/edit-class.component';
 import { EditStudentClassesComponent } from './dashboard/edit-student-classes/edit-student-classes.component';
+import { AssignStudentClassesComponent } from './dashboard/assign-student-classes/assign-student-classes.component';
+import { MarkAttendenceComponent } from './dashboard/mark-attendence/mark-attendence.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -92,7 +94,9 @@ export function tokenGetter() {
     AddClassComponent,
     SearchClassComponent,
     EditClassComponent,
-    EditStudentClassesComponent
+    EditStudentClassesComponent,
+    AssignStudentClassesComponent,
+    MarkAttendenceComponent
   ],
   imports: [
     JwBootstrapSwitchNg2Module,
