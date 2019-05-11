@@ -17,29 +17,12 @@ export class EditProfileComponent implements OnInit {
     this.role = localStorage.getItem('role');
     this.username = this.getDecodedAccessToken(localStorage.getItem('token'))['username'];
     console.log(this.getDecodedAccessToken(localStorage.getItem('token')));
-    console.log((this.getDecodedAccessToken(localStorage.getItem('token'))['user_id']));
 
-    // get profile details
-    if (this.role === 'student') {
-      this.auth.getStudentProfile(this.getDecodedAccessToken(localStorage.getItem('token'))['user_id']).subscribe(success => {
-        console.log(success);
-      }, error => {
-        console.log(error);
-      });
-    } else if (this.role === 'teacher') {
-      this.auth.getTeacherProfile(this.getDecodedAccessToken(localStorage.getItem('token'))['user_id']).subscribe(success => {
-        console.log(success);
-      }, error => {
-        console.log(error);
-      });
-    } else if (this.role === 'assistant') {
-      this.auth.getAssistantProfile(this.getDecodedAccessToken(localStorage.getItem('token'))['user_id']).subscribe(success => {
-        console.log(success);
-      }, error => {
-        console.log(error);
-      });
-    }
-
+    this.auth.getUserProfile(this.getDecodedAccessToken(localStorage.getItem('token'))['user_id']).subscribe(success => {
+      console.log(success);
+    }, error => {
+      console.log(error);
+    });
   }
   getDecodedAccessToken(token: string): any {
     try {

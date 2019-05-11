@@ -14,7 +14,7 @@
       </div>
       <div class="navbar-collapse" id="navbarToggler">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link">Students</a>
           </li>
           <li class="nav-item">
@@ -28,12 +28,12 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#pk">Attendance</a>
-              </li>
+              </li> -->
           <li class="nav-item">
             <div ngbDropdown class="d-inline-block dropdown">
               <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle><i class="nc-icon nc-circle-10"></i>{{username}}</a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-primary">
-                <a class="dropdown-item" (click)='edit()'>Edit Profile</a>
+                <a class="dropdown-item" (click)='edit()' *ngIf='admin'>Edit Profile</a>
                 <a class="dropdown-item" (click)='logout()'>Log out</a>
               </div>
             </div>

@@ -34,7 +34,9 @@ export class AuthService {
     }
 
   }
-
+  public getUserProfile(id) {
+    return this.http.get('http://localhost:8080/user/' + id, { headers: this.headers }).pipe(map(res => res));
+  }
   // get profile details
   public getStudentProfile(id) {
     // tslint:disable-next-line:max-line-length

@@ -10,6 +10,8 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 })
 export class DashboardNavbarComponent implements OnInit {
   username = '';
+  role = '';
+  admin = true;
   private toggleButton: any;
   private sidebarVisible: boolean;
   constructor(private router: Router, public location: Location, private element: ElementRef) {
@@ -17,6 +19,10 @@ export class DashboardNavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.role = localStorage.getItem('role');
+    if (this.role !== 'admin') {
+      this.admin = false;
+    }
     this.username = this.getDecodedAccessToken(localStorage.getItem('token'))['username'];
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
