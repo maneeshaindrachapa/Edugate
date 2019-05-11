@@ -57,6 +57,7 @@ import { EditStudentClassesComponent } from './dashboard/edit-student-classes/ed
 import { AssignStudentClassesComponent } from './dashboard/assign-student-classes/assign-student-classes.component';
 import { MarkAttendenceComponent } from './dashboard/mark-attendence/mark-attendence.component';
 import { AttendenceService } from './services/attendence.service';
+import { GenerateReportsComponent } from './dashboard/generate-reports/generate-reports.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -97,7 +98,8 @@ export function tokenGetter() {
     EditClassComponent,
     EditStudentClassesComponent,
     AssignStudentClassesComponent,
-    MarkAttendenceComponent
+    MarkAttendenceComponent,
+    GenerateReportsComponent
   ],
   imports: [
     JwBootstrapSwitchNg2Module,

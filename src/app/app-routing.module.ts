@@ -24,6 +24,7 @@ import { EditClassComponent } from './dashboard/edit-class/edit-class.component'
 import { EditStudentClassesComponent } from './dashboard/edit-student-classes/edit-student-classes.component';
 import { AssignStudentClassesComponent } from './dashboard/assign-student-classes/assign-student-classes.component';
 import { MarkAttendenceComponent } from './dashboard/mark-attendence/mark-attendence.component';
+import { GenerateReportsComponent } from './dashboard/generate-reports/generate-reports.component';
 
 const routes: Routes = [{ path: '', component: HomepageComponent },
 { path: 'login', component: LoginComponent },
@@ -45,7 +46,8 @@ const routes: Routes = [{ path: '', component: HomepageComponent },
 { path: 'editClass', component: EditClassComponent, canActivate: [AuthGuard] },
 { path: 'editStudentClass', component: EditStudentClassesComponent, canActivate: [AuthGuard] },
 { path: 'assignStudentClass', component: AssignStudentClassesComponent, canActivate: [AuthGuard] },
-{ path: 'markAttendence', component: MarkAttendenceComponent, canActivate: [AuthGuard] }
+{ path: 'markAttendence', component: MarkAttendenceComponent, canActivate: [AuthGuard] },
+{ path: 'generateReports', component: GenerateReportsComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
