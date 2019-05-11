@@ -140,4 +140,12 @@ export class ClassService {
   deleteClass(class_id) {
     return this.http.delete('http://localhost:8080/classes/delete/' + class_id, { headers: this.headers }).pipe(map(res => res));
   }
+
+  generateReports(class_id, from, to) {
+    return this.http.post('http://localhost:8080/classes/generate-reports', {
+      'class_id': class_id,
+      'from': from,
+      'to': to
+    }, { headers: this.headers }).pipe(map(res => res));
+  }
 }
