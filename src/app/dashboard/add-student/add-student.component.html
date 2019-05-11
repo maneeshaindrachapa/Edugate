@@ -52,8 +52,20 @@
               (focus)="focus=true" (blur)="focus=false" [(ngModel)]='personalInfo.telephone' name='telephone'>
           </div>
           <label>Mobile Phone</label>
-          <bSwitch  style="margin-left:5%" [switch-off-color]="'warning'" [switch-on-color]="'primary'" [(ngModel)]="personalInfo.mobilePhone">
+          <bSwitch style="margin-left:5%" [switch-off-color]="'warning'" [switch-on-color]="'primary'"
+            [(ngModel)]="personalInfo.mobilePhone">
           </bSwitch>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}"></div>
+          <label>email *</label>
+          <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="nc-icon nc-map-big"></i>
+              </span>
+            </div>
+            <input type="email" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false"
+              [(ngModel)]='personalInfo.email' name='email'>
+          </div>
         </div>
         <div class="col-md-6 mr-auto ml-auto">
           <label>Address *</label>
@@ -282,11 +294,13 @@
       <div fxLayout="row" fxLayoutAlign="center">
         <div class="table" style="padding: 20px;">
           <ngx-datatable class="material" [rows]="rows_" [columnMode]="'force'" [columns]="columns" [headerHeight]="50"
-            [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [selected]="selected_" [selectionType]="'multiClick'"
-            (select)="selectClass($event)">
+            [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [selected]="selected_" [selectionType]="'single'"
+            (select)="selectClassAdded($event)">
           </ngx-datatable>
+          <button class="btn btn-default btn-round" style='float: right;' (click)='removeClass()' *ngIf='rows_.length>0'>Remove Class</button>
         </div>
       </div>
+
       <div class="row">
         <div class="col-md-12 mr-auto ml-auto">
           <button class="btn btn-default btn-round" (click)='addStudent()'>Add Student</button>

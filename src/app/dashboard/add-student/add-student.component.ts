@@ -33,9 +33,10 @@ export class AddStudentComponent implements OnInit {
   ];
   selected = [];
   selected_ = [];
+  selected__ = [];
   /*************/
 
-  personalInfo = { firstName: '', lastName: '', address: '', city: '', telephone: '', mobilePhone: false, birthday: '' };
+  personalInfo = { firstName: '', lastName: '', address: '', city: '', telephone: '', mobilePhone: false, birthday: new Date(), email: '' };
   guardinaInfo = { name: '', address: '', city: '', telephone: '', emergency: '' };
   batchDetails = '';
   // tslint:disable-next-line:max-line-length
@@ -51,7 +52,19 @@ export class AddStudentComponent implements OnInit {
     this.modalService.open(content);
     this.getBatch();
   }
-
+  removeClass() {
+    if (this.selected_.length > 0) {
+      for (let i = 0; i < this.rows_.length; i++) {
+        if (this.rows_[i]['_id'] === this.selected__['_id']) {
+          this.rows_.splice(i, 1);
+          this.selected__ = [];
+          break;
+        }
+      }
+    } else {
+      this.alertService.warning('Please Select a Class to Remove');
+    }
+  }
   addClasses() {
     if (this.rows_.length > 0) {
       let t = true;
@@ -72,21 +85,24 @@ export class AddStudentComponent implements OnInit {
       }
     }
     this.rows_ = this.classes_;
-    console.log(this.rows_);
     this.modalService.dismissAll();
   }
 
   addStudent() {
-    this.auth.addStudent(this.personalInfo, this.guardinaInfo, this.batchDetails, this.classes)
+    this.auth.addStudent(this.personalInfo, this.guardinaInfo, this.batchDetails, this.rows_)
       .subscribe(success => {
-        console.log(success);
+        this.alertService.success('Student Added Successfully');
       }, error => {
         console.log(error);
+        this.alertService.danger(error['error']['message']);
       });
   }
   selectClass({ selected }) {
     this.selected.splice(0, this.selected.length);
     this.selected.push(...selected);
+  }
+  selectClassAdded(t) {
+    this.selected__ = t.selected[0];
   }
 
   /* guardian details select same*/

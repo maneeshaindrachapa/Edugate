@@ -62,19 +62,26 @@ export class AuthService {
 
   /* add student */
   public addStudent(personalDetails, GuardianDetails, batchDetails, Classes) {
+    const classes_info = [];
+    const classes_template = { 'class_id': '', 'fees_rate': 1 };
+    for (let i = 0; i < Classes.length; i++) {
+      classes_template.class_id = Classes[i]['_id'];
+      classes_template.fees_rate = Classes[i]['fees'];
+      classes_info.push(classes_template);
+    }
     return this.http.post('http://localhost:8080/students/add',
       {
-        'first_name': personalDetails.first_name,
-        'last_name': personalDetails.last_name,
+        'first_name': personalDetails.firstName,
+        'last_name': personalDetails.lastName,
         'address': { 'lines': personalDetails.address, 'city': personalDetails.city },
         'email': personalDetails.email,
-        'telephone': { 'number': personalDetails.telephone, 'mobile': false },
+        'telephone': { 'number': personalDetails.telephone, 'mobile': personalDetails.mobilePhone },
         'guardian': { 'name': GuardianDetails.name, 'telephone': GuardianDetails.telephone },
-        'emergency_contact': GuardianDetails.emergency_contact,
-        'admission_date': '2019-03-20',
-        'addmission_batch': batchDetails,
+        'emergency_contact': GuardianDetails.emergency,
+        'admission_date': new Date(),
+        'admission_batch': batchDetails,
         'current_batch': batchDetails,
-        'class_info': [{ 'class_id': '', 'fees_rate': 1 }]
+        'class_info': classes_template
       }, { headers: this.headers }).pipe(map(res => res));
   }
   /* update student */
@@ -82,7 +89,7 @@ export class AuthService {
     return this.http.post('http://localhost:8080/students/update/:' + personalDetails.student_id,
       {
         'first_name': personalDetails.first_name,
-        'birthday' : personalDetails.birthday,
+        'birthday': personalDetails.birthday,
         'last_name': personalDetails.last_name,
         'address': { 'lines': personalDetails.address.lines, 'city': personalDetails.address.city },
         'email': personalDetails.email,
