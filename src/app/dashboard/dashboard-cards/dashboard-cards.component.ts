@@ -51,4 +51,7 @@ export class DashboardCardsComponent implements OnInit {
   markAttendence_() {
     this.router.navigate(['markAttendence']);
   }
+  generate() {
+    this.router.navigate(['generateReports']);
+  }
 }
