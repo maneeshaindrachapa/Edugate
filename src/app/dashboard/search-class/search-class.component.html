@@ -27,7 +27,7 @@
       <ul>
         <li *ngFor='let class of classes;let i = index'>
           <div class="card card-register class-inline">
-            <bSwitch style="margin-left: 75%;" *ngIf='student' [switch-on-color]="'primary'" [(ngModel)]="classes[i]['enabled']"
+            <bSwitch style="margin-left: 75%;" *ngIf='student' [switch-off-color]="'warning'" [switch-on-color]="'primary'" [(ngModel)]="classes[i]['enabled']"
               (changeState)="onChange(classes[i],$event)">
             </bSwitch>
             <h3 class="title">Subject:{{class.subject_id}}</h3>

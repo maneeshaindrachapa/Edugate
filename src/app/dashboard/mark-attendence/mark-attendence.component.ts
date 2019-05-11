@@ -73,6 +73,7 @@ export class MarkAttendenceComponent implements OnInit {
     this.attSer.top_up(this.student_id, this.class_id_, this.payFor, this.fees).subscribe(success => {
       this.alertService.success('Top Up Paid for ' + this.payFor + ' successfully');
       this.modalService.dismissAll();
+      this.fullHalf = 'full';
     }, error => {
       console.log(error);
       this.alertService.danger('Error While Top Up');
