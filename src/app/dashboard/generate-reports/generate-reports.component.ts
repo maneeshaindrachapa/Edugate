@@ -40,15 +40,17 @@ export class GenerateReportsComponent implements OnInit {
         this.classSer.generateReports(this.classes[i]['_id'], this.from, this.to).subscribe(success => {
           console.log(success);
           this.allClasses.push(success);
+          this.alertService.success('Generate Report of ' + this.classes[i]['_id'] + ' successfully');
         }, error => {
+          this.alertService.danger(error['error']['message']);
           console.log(error);
         });
       }
     } else {
       this.classSer.generateReports(this.selectClass, this.from, this.to).subscribe(success => {
-        console.log(success);
+        this.alertService.success('Generate Report of ' + this.selectClass + ' successfully');
       }, error => {
-        console.log(error);
+        this.alertService.danger(error['error']['message']);
       });
     }
   }
