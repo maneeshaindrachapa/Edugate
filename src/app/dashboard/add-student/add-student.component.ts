@@ -84,7 +84,10 @@ export class AddStudentComponent implements OnInit {
         this.classes_.push(this.selected[i]);
       }
     }
-    this.rows_ = this.classes_;
+    this.rows_ = [];
+    for (let i = 0; i < this.classes_.length; i++) {
+      this.rows_.push(this.classes_[i]);
+    }
     this.modalService.dismissAll();
   }
 

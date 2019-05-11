@@ -147,44 +147,44 @@ export class AssignStudentClassesComponent implements OnInit {
   //     this.getstudentsNotIn();
   //   }
   // }
-  // unenrollClass() {
-  //   if (this.selected.length > 0) {
-  //     this.spinnerService.show();
-  //     this.classSer.deassignStudent(this.class_['class_id'], this.selected).subscribe(success => {
-  //       console.log(success);
-  //       this.selected = [];
-  //       this.getStudents();
-  //       this.getstudentsNotIn();
-  //       this.spinnerService.hide();
-  //       this.alertService.success('Student Deassigend Successfully');
-  //     }, error => {
-  //       console.log(error);
-  //       this.selected = [];
-  //       this.spinnerService.hide();
-  //       this.alertService.danger('Error While Deassigning Student');
-  //     });
-  //   } else {
-  //     this.alertService.warning('Please Select a Class to Deassign');
-  //   }
-  // }
-  // enroll() {
-  //   if (this.selected_.length > 0) {
-  //     this.spinnerService.show();
-  //     this.classSer.assignStudent(this.class_['class_id'], this.selected_).subscribe(success => {
-  //       console.log(success);
-  //       this.selected_ = [];
-  //       this.getStudents();
-  //       this.getstudentsNotIn();
-  //       this.spinnerService.hide();
-  //       this.alertService.success('Student Assigend Successfully');
-  //     }, error => {
-  //       console.log(error);
-  //       this.selected_ = [];
-  //       this.spinnerService.hide();
-  //       this.alertService.danger('Error While Assigning Student');
-  //     });
-  //   } else {
-  //     this.alertService.warning('Please Select a Class to Aassign');
-  //   }
-  // }
+  unenrollClass() {
+    if (this.selected.length > 0) {
+      this.spinnerService.show();
+      this.classSer.deassignStudent(this.class_['class_id'], this.selected).subscribe(success => {
+        console.log(success);
+        this.selected = [];
+        this.getStudents();
+        this.getstudentsNotIn();
+        this.spinnerService.hide();
+        this.alertService.success('Student Deassigend Successfully');
+      }, error => {
+        console.log(error);
+        this.selected = [];
+        this.spinnerService.hide();
+        this.alertService.danger('Error While Deassigning Student');
+      });
+    } else {
+      this.alertService.warning('Please Select a Class to Deassign');
+    }
+  }
+  enroll() {
+    if (this.selected_.length > 0) {
+      this.spinnerService.show();
+      this.classSer.assignStudent(this.class_['class_id'], this.selected_).subscribe(success => {
+        console.log(success);
+        this.selected_ = [];
+        this.getStudents();
+        this.getstudentsNotIn();
+        this.spinnerService.hide();
+        this.alertService.success('Student Assigend Successfully');
+      }, error => {
+        console.log(error);
+        this.selected_ = [];
+        this.spinnerService.hide();
+        this.alertService.danger('Error While Assigning Student');
+      });
+    } else {
+      this.alertService.warning('Please Select a Class to Aassign');
+    }
+  }
 }
