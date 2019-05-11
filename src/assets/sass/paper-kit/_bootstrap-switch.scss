@@ -218,11 +218,11 @@
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-handle-off {
-  background-color: #66615B;
+  background-color:$primary-color;
 }
 
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-handle-on {
-  background-color: #cfcfca;
+  background-color: #FFA534;
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-danger ~ .bootstrap-switch-default {
@@ -250,5 +250,5 @@
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-info,
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-warning,
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-success {
-  background-color: #cfcfca;
+  //background-color: #cfcfca;
 }

@@ -35,7 +35,7 @@ export class AddStudentComponent implements OnInit {
   selected_ = [];
   /*************/
 
-  personalInfo = { firstName: '', lastName: '', address: '', city: '', telephone: '', mobilePhone: '', birthday: '' };
+  personalInfo = { firstName: '', lastName: '', address: '', city: '', telephone: '', mobilePhone: false, birthday: '' };
   guardinaInfo = { name: '', address: '', city: '', telephone: '', emergency: '' };
   batchDetails = '';
   // tslint:disable-next-line:max-line-length
