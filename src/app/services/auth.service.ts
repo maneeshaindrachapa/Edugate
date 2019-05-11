@@ -75,24 +75,25 @@ export class AuthService {
         'addmission_batch': batchDetails,
         'current_batch': batchDetails,
         'class_info': [{ 'class_id': '', 'fees_rate': 1 }]
-      }).pipe(map(res => res));
+      }, { headers: this.headers }).pipe(map(res => res));
   }
   /* update student */
-  public updateStudent(personalDetails, GuardianDetails, batchDetails, Classes) {
-    return this.http.post('http://localhost:8080/students/add',
+  public updateStudent(personalDetails) {
+    return this.http.post('http://localhost:8080/students/update/:' + personalDetails.student_id,
       {
         'first_name': personalDetails.first_name,
+        'birthday' : personalDetails.birthday,
         'last_name': personalDetails.last_name,
-        'address': { 'lines': personalDetails.address, 'city': personalDetails.city },
+        'address': { 'lines': personalDetails.address.lines, 'city': personalDetails.address.city },
         'email': personalDetails.email,
         'telephone': { 'number': personalDetails.telephone, 'mobile': false },
-        'guardian': { 'name': GuardianDetails.name, 'telephone': GuardianDetails.telephone },
-        'emergency_contact': GuardianDetails.emergency_contact,
+        'guardian': { 'name': personalDetails.guardian.name, 'telephone': personalDetails.guardian.telephone },
+        'emergency_contact': personalDetails.emergency_contact,
         'admission_date': '2019-03-20',
-        'addmission_batch': batchDetails,
-        'current_batch': batchDetails,
+        'admission_batch': personalDetails.admission_batch,
+        'current_batch': personalDetails.current_batch,
         'class_info': [{ 'class_id': '', 'fees_rate': 1 }]
-      }).pipe(map(res => res));
+      }, { headers: this.headers }).pipe(map(res => res));
   }
   /* Delete Student */
   deleteStudent(std_id) {

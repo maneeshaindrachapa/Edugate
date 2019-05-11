@@ -26,7 +26,7 @@
               </span>
             </div>
             <input type="text" class="form-control" [(ngModel)]="studentDetails['first_name']" placeholder="First Name" (focus)="focus=true" (blur)="focus=false"
-               name='firstName' disabled>
+               name='firstName'>
           </div>
           <label>Last Name </label>
           <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -36,7 +36,7 @@
               </span>
             </div>
             <input type="text" class="form-control" [(ngModel)]="studentDetails['last_name']" placeholder="Last Name" (focus)="focus=true" (blur)="focus=false"
-             name='lastName' disabled>
+             name='lastName'>
           </div>
           <label>Telephone </label>
           <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
@@ -217,7 +217,7 @@
             </div>
             <div class="form-check-radio" *ngFor='let batch of batches'>
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="batchDetails"
+                <input class="form-check-input" [(ngModel)]="studentDetails['current_batch']" type="radio" name="batchDetails"
                   value="{{batch['year']}}{{batch['category']}}">
                 {{batch['category']}} &nbsp; {{batch['year']}}
                 <span class="form-check-sign"></span>
@@ -225,7 +225,7 @@
             </div>
             <div class="modal-footer">
               <div class="left-side">
-                <button type="button" class="btn btn-default btn-link" (click)="d('Close click')">Add Batch</button>
+                <button type="button" class="btn btn-default btn-link" (click)="d('Close click')">Set Batch</button>
               </div>
               <div class="divider"></div>
               <div class="right-side">

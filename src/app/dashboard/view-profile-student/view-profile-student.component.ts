@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClassService } from 'src/app/services/class.service';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'app-view-profile-student',
@@ -14,6 +15,7 @@ export class ViewProfileStudentComponent implements OnInit {
   profile_pic = 'edit-student-profile.png';
   studentDetails: any;
   classes = [];
+  batches = [];
   /* data tabel for classes */
   rows = [];
   columns = [
@@ -27,7 +29,8 @@ export class ViewProfileStudentComponent implements OnInit {
   ];
   selected = [];
   /*************/
-  constructor(private auth: AuthService, private modalService: NgbModal, private classSer: ClassService) { }
+  constructor(private auth: AuthService, private modalService: NgbModal, private classSer: ClassService,
+    private alertService: AlertService) { }
 
   ngOnInit() {
     this.studentDetails = JSON.parse(localStorage.getItem('student'));
@@ -54,9 +57,30 @@ export class ViewProfileStudentComponent implements OnInit {
       console.log(error);
     });
   }
-
-  updateStudent() {
-
+  openBatch(content) {
+    this.modalService.open(content);
+    this.getBatch();
+  }
+  getBatch() {
+    this.batches = [];
+    this.classSer.getBatches().subscribe(data => {
+      for (let i = 0; i < data['data'].length; i++) {
+        this.batches.push(data['data'][i]);
+      }
+      console.log(this.batches);
+    }, error => {
+      console.log(error);
+    });
+  }
+  UpdateStudent() {
+    console.log(this.studentDetails);
+    this.auth.updateStudent(this.studentDetails).subscribe(success => {
+      console.log(success);
+      this.alertService.success('Update Student Details Successfully');
+    }, error => {
+      console.log(error);
+      this.alertService.danger('Error Update Student Details');
+    });
   }
 
 }
