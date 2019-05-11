@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-assistant.component.scss']
 })
 export class SearchAssistantComponent implements OnInit {
+  role = '';
+  student = true;
   searchTxt = '';
   allAssistant = [];
   /* data tabel for classes */
@@ -28,6 +30,10 @@ export class SearchAssistantComponent implements OnInit {
   constructor(private modalService: NgbModal, private auth: AuthService, private alertService: AlertService, private router: Router) { }
 
   ngOnInit() {
+    this.role = localStorage.getItem('role');
+    if (this.role === 'student') {
+      this.student = false;
+    }
     this.allAssistant = [];
     this.auth.getAssistants().subscribe(success => {
       this.rows = success['data'];

@@ -59,7 +59,7 @@
             <a (click)='addAssistant()' class="btn btn-link btn-forgot-password"><i
                 class='fas fa-plus-circle'></i>Add</a>
           </div>
-          <div class="forgot">
+          <div class="forgot" *ngIf='students'>
             <a (click)='searchAssistant()' class="btn btn-link btn-forgot-password"><i
                 class='fas fa-search'></i>Search</a>
           </div>

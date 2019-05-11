@@ -11,6 +11,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SearchStudentComponent implements OnInit {
   searchTxt = '';
+  role = '';
+  studentT = true;
   allstudents = [];
   /* data tabel for classes */
   rows = [];
@@ -28,6 +30,10 @@ export class SearchStudentComponent implements OnInit {
   constructor(private modalService: NgbModal, private auth: AuthService, private alertService: AlertService, private router: Router) { }
 
   ngOnInit() {
+    this.role = localStorage.getItem('role');
+    if (this.role === 'student') {
+      this.studentT = false;
+    }
     this.allstudents = [];
     this.auth.getStudents().subscribe(success => {
       this.rows = success['data'];

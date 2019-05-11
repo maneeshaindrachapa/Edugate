@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class SearchTeacherComponent implements OnInit {
   searchTxt = '';
   allTeachers = [];
+  role = '';
+  student = true;
   /* data tabel for classes */
   rows = [];
   columns = [
@@ -28,6 +30,10 @@ export class SearchTeacherComponent implements OnInit {
   constructor(private modalService: NgbModal, private auth: AuthService, private alertService: AlertService, private router: Router) { }
 
   ngOnInit() {
+    this.role = localStorage.getItem('role');
+    if (this.role === 'student') {
+      this.student = false;
+    }
     this.allTeachers = [];
     this.auth.getTeachers().subscribe(success => {
       this.rows = success['data'];

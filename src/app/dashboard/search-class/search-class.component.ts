@@ -15,7 +15,8 @@ export class SearchClassComponent implements OnInit {
   selectedValue = '';
   classes = [];
   deleteClass_: any;
-
+  student = true;
+  role = '';
   constructor(private classSer: ClassService,
     private modalService: NgbModal,
     private alertService: AlertService,
@@ -23,6 +24,10 @@ export class SearchClassComponent implements OnInit {
 
   ngOnInit() {
     this.getClasses();
+    this.role = localStorage.getItem('role');
+    if (this.role === 'student') {
+      this.student = false;
+    }
   }
   getClasses() {
     this.classes = [];
