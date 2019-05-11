@@ -1,0 +1,43 @@
+<app-dashboard-navbar></app-dashboard-navbar>
+<div class="wrapper">
+  <div class="container">
+      <ngx-alerts style="font-family: 'kiona' !important;"></ngx-alerts>
+    <div class="row search-bar">
+      <div class="col-md-8 ml-auto mr-auto">
+          <label>Class</label>
+        <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+          <select class="form-control"  [(ngModel)]='selectClass'>
+            <option class='form-control' value="" selected>--All--</option>
+            <option class="form-control" *ngFor='let class of classes' value={{class._id}}>{{class.batch_id}} / {{class.subject_id}} / {{class.teacher_id}} / {{class.group_id}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 ml-auto">
+            <label>From</label>
+          <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+            <input type='date' class="form-control" placeholder="From" [(ngModel)]='from' name='from'>
+          </div>
+        </div>
+        <div class="col-md-4 mr-auto">
+            <label>To</label>
+            <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+              <input type='date' class="form-control" placeholder="To" [(ngModel)]='to' name='to'>
+            </div>
+          </div>
+      </div>
+    <div class="row tabel">
+        <ngx-alerts style="font-family: 'kiona' !important;"></ngx-alerts>
+      <div class="col-md-12 ml-auto mr-auto">
+      </div>
+    </div>
+    <div class="row icons">
+      <div class="col-md-8 ml-auto mr-auto">
+        <div class="button-center">
+          <button class="btn btn-default btn-round spec" (click)='generate()'><i class="fas fa-scroll"></i> &nbsp; Generate Reports</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
